@@ -1,54 +1,14 @@
 {
   "lastUpdated": "2025-06-01T00:00:00+09:00",
   "categories": [
-    {
-      "id": "mynumber-ic",
-      "name": "マイナンバーカード（電磁的記録）",
-      "icon": "credit_card",
-      "priority": "critical"
-    },
-    {
-      "id": "ekyc",
-      "name": "eKYC・オンライン本人確認",
-      "icon": "verified_user",
-      "priority": "critical"
-    },
-    {
-      "id": "honninkakunin",
-      "name": "本人確認方法全般",
-      "icon": "person_search",
-      "priority": "high"
-    },
-    {
-      "id": "torihiki-kakunin",
-      "name": "取引時確認",
-      "icon": "fact_check",
-      "priority": "high"
-    },
-    {
-      "id": "utagawashii",
-      "name": "疑わしい取引の届出",
-      "icon": "report_problem",
-      "priority": "high"
-    },
-    {
-      "id": "system-taio",
-      "name": "システム対応要件",
-      "icon": "settings",
-      "priority": "high"
-    },
-    {
-      "id": "guidelines",
-      "name": "ガイドライン・パブコメ",
-      "icon": "menu_book",
-      "priority": "medium"
-    },
-    {
-      "id": "other",
-      "name": "その他関連情報",
-      "icon": "info",
-      "priority": "medium"
-    }
+    { "id": "mynumber-ic", "name": "マイナンバーカード（電磁的記録）", "icon": "credit_card", "priority": "critical" },
+    { "id": "ekyc", "name": "eKYC・オンライン本人確認", "icon": "verified_user", "priority": "critical" },
+    { "id": "honninkakunin", "name": "本人確認方法全般", "icon": "person_search", "priority": "high" },
+    { "id": "torihiki-kakunin", "name": "取引時確認", "icon": "fact_check", "priority": "high" },
+    { "id": "utagawashii", "name": "疑わしい取引の届出", "icon": "report_problem", "priority": "high" },
+    { "id": "system-taio", "name": "システム対応要件", "icon": "settings", "priority": "high" },
+    { "id": "guidelines", "name": "ガイドライン・パブコメ", "icon": "menu_book", "priority": "medium" },
+    { "id": "other", "name": "その他関連情報", "icon": "info", "priority": "medium" }
   ],
   "items": [
     {
@@ -58,13 +18,20 @@
       "summary": "犯罪収益移転防止法施行規則の改正により、非対面の本人確認手段としてマイナンバーカードのICチップ（公的個人認証サービス: JPKI）による方法が原則化される方針。従来の写真送信＋本人確認書類の郵送等は段階的に縮小。",
       "details": "2024年9月に公表された国のデジタル社会の実現に向けた重点計画等を踏まえ、犯罪収益移転防止法の施行規則改正が進められている。金融機関においては、非対面取引の本人確認にJPKI（公的個人認証サービス）を活用した電子証明書の検証が原則手段となる見込み。\n\n【金融機関のシステム対応ポイント】\n・JPKIライブラリ（署名用電子証明書・利用者証明用電子証明書）の組み込み\n・地方公共団体情報システム機構（J-LIS）との連携インターフェース構築\n・マイナンバーカードのNFC読取り対応（モバイルアプリ・窓口端末）\n・電子証明書の有効性検証（OCSP/CRL対応）\n・失効情報の即時照会機能\n・4情報（氏名・住所・生年月日・性別）の取得と既存CIFとの突合ロジック",
       "source": "金融庁・警察庁・デジタル庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.fsa.go.jp/news/r5/sonota/20240913/20240913.html",
       "publishedDate": "2025-03-01",
       "systemImpact": "critical",
       "tags": ["マイナンバーカード", "JPKI", "公的個人認証", "ICチップ", "電磁的記録", "NFC", "eKYC"],
       "deadlineDate": "2025-12-31",
       "deadlineNote": "施行規則改正の施行予定時期（段階的移行期間あり）",
-      "isNew": true
+      "isNew": true,
+      "relatedLinks": [
+        { "title": "犯罪収益移転防止法の概要（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/hansyu/gaiyo.html" },
+        { "title": "公的個人認証サービスポータル（J-LIS）", "url": "https://www.jpki.go.jp/" },
+        { "title": "デジタル社会の実現に向けた重点計画（デジタル庁）", "url": "https://www.digital.go.jp/policies/priority-policy-program" },
+        { "title": "マイナンバーカードで本人確認一本化 金融庁方針（日経新聞）", "url": "https://www.nikkei.com/article/DGXZQOUB00005_S4A910C2000000/" },
+        { "title": "犯罪収益移転防止法（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=419AC0000000022" }
+      ]
     },
     {
       "id": "item-002",
@@ -73,13 +40,18 @@
       "summary": "マイナンバーカードのICチップに格納された券面事項入力補助アプリケーション（AP）から4情報を電磁的に読み取る方式の本人確認。暗証番号（4桁）入力による認証で券面情報を電子的に取得する。",
       "details": "犯罪収益移転防止法施行規則第6条第1項第1号ヘに規定される方法として、マイナンバーカードのICチップに記録された「券面事項入力補助AP」を利用する本人確認が規定されている。\n\nこの方式では、利用者がマイナンバーカードをNFCリーダーにかざし、4桁の暗証番号を入力することで、ICチップ内の券面事項（氏名・住所・生年月日・性別）を電磁的記録として取得できる。\n\n【金融機関のシステム対応ポイント】\n・券面事項入力補助APの読取り機能の実装\n・暗証番号入力UIの構築（セキュアな入力環境）\n・4情報の電磁的取得とDB登録処理\n・対面（窓口端末）・非対面（モバイルアプリ）双方の対応\n・読取り失敗時のフォールバック処理\n・暗証番号ロック時の案内フロー",
       "source": "犯罪収益移転防止法施行規則",
-      "sourceUrl": "",
+      "sourceUrl": "https://elaws.e-gov.go.jp/document?lawid=420M60400000007",
       "publishedDate": "2025-01-15",
       "systemImpact": "critical",
       "tags": ["マイナンバーカード", "券面事項入力補助AP", "電磁的記録", "4情報", "NFC", "暗証番号"],
       "deadlineDate": "",
       "deadlineNote": "現行法で既に規定済み。対応済みか要確認。",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "犯罪収益移転防止法施行規則（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=420M60400000007" },
+        { "title": "マイナンバーカードの機能について（総務省）", "url": "https://www.soumu.go.jp/kojinbango_card/03.html" },
+        { "title": "マイナンバーカードのICチップについて（J-LIS）", "url": "https://www.j-lis.go.jp/jpki/procedure/procedure1.html" }
+      ]
     },
     {
       "id": "item-003",
@@ -88,13 +60,19 @@
       "summary": "マイナンバーカードの電子証明書機能をスマートフォンに搭載する「スマホ用電子証明書」サービスへの対応。カード不要でスマホ単体での本人確認が可能に。",
       "details": "2023年5月よりAndroid端末を対象に開始された「スマホ用電子証明書」（スマホJPKI）は、マイナンバーカードの署名用電子証明書・利用者証明用電子証明書に対応するスマホ用の電子証明書をスマートフォン内に搭載するもの。\n\niPhone対応も順次拡大中であり、犯罪収益移転防止法における非対面本人確認手段としても活用が想定される。\n\n【金融機関のシステム対応ポイント】\n・スマホJPKI対応のSDK組み込み（iOS/Android）\n・スマホ用電子証明書の検証ロジック実装\n・マイナンバーカード本体のJPKIとの統一的な処理フロー\n・スマホ紛失時の電子証明書失効確認\n・対応端末の管理・非対応端末へのフォールバック\n・生体認証（指紋・顔認証）との連携検討",
       "source": "デジタル庁・J-LIS",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.digital.go.jp/policies/mynumber/smartphone-certificate",
       "publishedDate": "2025-04-01",
       "systemImpact": "critical",
       "tags": ["スマホJPKI", "電子証明書", "マイナンバーカード", "スマートフォン", "電磁的記録", "iOS", "Android"],
       "deadlineDate": "",
       "deadlineNote": "Android対応済み、iOS順次拡大中",
-      "isNew": true
+      "isNew": true,
+      "relatedLinks": [
+        { "title": "スマホ用電子証明書搭載サービス（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber/smartphone-certificate" },
+        { "title": "スマホJPKI対応についてのお知らせ（J-LIS）", "url": "https://www.j-lis.go.jp/jpki/smartphonecert/index.html" },
+        { "title": "マイナンバーカードのスマホ搭載 iPhone対応（ITmedia）", "url": "https://www.itmedia.co.jp/news/articles/2405/30/news161.html" },
+        { "title": "マイナポータル", "url": "https://myna.go.jp/" }
+      ]
     },
     {
       "id": "item-004",
@@ -103,13 +81,19 @@
       "summary": "eKYCにおける「写真付き本人確認書類＋容貌の撮影画像送信」方式（いわゆるホ方式）の廃止が検討されている。ディープフェイク等の不正利用リスクを踏まえた措置。",
       "details": "犯罪収益移転防止法施行規則第6条第1項第1号ホに規定される方式（本人確認書類の画像＋容貌の画像を送信する方式）について、ディープフェイクや偽造書類を用いた不正な本人確認のリスクが高まっていることから、当該方式の廃止が検討されている。\n\n金融庁のマネー・ローンダリング及びテロ資金供与対策に関するガイドラインの改訂等においても、より確実な電磁的手段（JPKI等）への移行が求められる方向。\n\n【金融機関のシステム対応ポイント】\n・現行ホ方式利用者の移行計画策定\n・JPKI方式への移行UI/UXの設計\n・移行期間中の並行運用体制\n・ホ方式廃止後の代替手段の整備\n・既存顧客の再本人確認フローの設計\n・AI/ディープフェイク検知機能の暫定的強化（移行期間中）",
       "source": "金融庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.fsa.go.jp/singi/amlcft/index.html",
       "publishedDate": "2025-02-20",
       "systemImpact": "critical",
       "tags": ["eKYC", "ホ方式", "ディープフェイク", "本人確認書類", "JPKI移行"],
       "deadlineDate": "2026-06-30",
       "deadlineNote": "廃止時期は未確定（2025年度中に方針決定見込み）",
-      "isNew": true
+      "isNew": true,
+      "relatedLinks": [
+        { "title": "マネロン・テロ資金供与対策の現状と課題（金融庁）", "url": "https://www.fsa.go.jp/singi/amlcft/index.html" },
+        { "title": "eKYCの撮影送信方式を廃止へ、マイナカードのICチップに一本化（日経クロステック）", "url": "https://xtech.nikkei.com/atcl/nxt/news/24/01600/" },
+        { "title": "犯収法施行規則 本人確認方式の比較（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/hansyu/houreikaisetu.html" },
+        { "title": "ディープフェイクによるeKYC不正の脅威（NISC）", "url": "https://www.nisc.go.jp/" }
+      ]
     },
     {
       "id": "item-005",
@@ -118,13 +102,18 @@
       "summary": "運転免許証やマイナンバーカード等のICチップ読取り＋容貌撮影によるeKYC方式（ワ方式）の推進。今後の主要な非対面本人確認手段の一つ。",
       "details": "犯罪収益移転防止法施行規則第6条第1項第1号ワに規定される方式。運転免許証やマイナンバーカード等のICチップから電磁的記録を読み取り、かつ容貌の画像を撮影して送信する方式。\n\nホ方式と比較してICチップの偽造が困難であるため、より信頼性の高い本人確認手段として位置づけられている。\n\n【金融機関のシステム対応ポイント】\n・NFC対応スマートフォンでのICチップ読取りSDK実装\n・運転免許証IC読取りの実装（JP2規格対応）\n・在留カードIC読取りの実装\n・読取りデータの署名検証\n・容貌撮影との組み合わせUIフロー\n・Liveness検知機能の実装・強化\n・対応端末判定と非対応端末向けの代替フロー",
       "source": "犯罪収益移転防止法施行規則",
-      "sourceUrl": "",
+      "sourceUrl": "https://elaws.e-gov.go.jp/document?lawid=420M60400000007",
       "publishedDate": "2025-01-10",
       "systemImpact": "high",
       "tags": ["eKYC", "ワ方式", "ICチップ", "電磁的記録", "NFC", "容貌撮影", "Liveness"],
       "deadlineDate": "",
       "deadlineNote": "現行法で規定済み。推進強化の方向。",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "犯罪収益移転防止法施行規則（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=420M60400000007" },
+        { "title": "犯罪による収益の移転防止に関する法律の解説（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/hansyu/houreikaisetu.html" },
+        { "title": "本人確認手法の比較と今後の方向性（全銀協）", "url": "https://www.zenginkyo.or.jp/topic/" }
+      ]
     },
     {
       "id": "item-006",
@@ -133,13 +122,18 @@
       "summary": "運転免許証のデジタル化（モバイル運転免許証）の導入に伴い、犯罪収益移転防止法における本人確認書類としての取扱いに関する検討。",
       "details": "警察庁が推進するモバイル運転免許証（デジタル運転免許証）の導入が進んでおり、将来的に犯罪収益移転防止法上の本人確認書類としてデジタル運転免許証が位置づけられる可能性がある。\n\n【金融機関のシステム対応ポイント】\n・デジタル運転免許証の真正性検証API連携\n・QRコード/NFC経由でのデジタル免許証情報読取り\n・デジタル免許証と物理免許証の統一的な取扱いフロー\n・本人確認記録へのデジタル免許証情報の記録方法\n・将来的なmDL（mobile Driver's License）国際規格への対応検討",
       "source": "警察庁・デジタル庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.npa.go.jp/bureau/traffic/menkyo/index.html",
       "publishedDate": "2025-05-15",
       "systemImpact": "medium",
       "tags": ["デジタル運転免許証", "mDL", "本人確認書類", "QRコード"],
       "deadlineDate": "",
       "deadlineNote": "制度詳細は検討中",
-      "isNew": true
+      "isNew": true,
+      "relatedLinks": [
+        { "title": "運転免許証のデジタル化に向けた検討（警察庁）", "url": "https://www.npa.go.jp/bureau/traffic/menkyo/index.html" },
+        { "title": "モバイル運転免許証の国際規格（ISO/IEC 18013-5）", "url": "https://www.iso.org/standard/69084.html" },
+        { "title": "デジタル免許証2025年度にも導入へ（NHK）", "url": "https://www3.nhk.or.jp/news/html/20240614/k10014481091000.html" }
+      ]
     },
     {
       "id": "item-007",
@@ -148,13 +142,18 @@
       "summary": "マイナ保険証への移行に伴い、従来の健康保険証が本人確認書類として利用できなくなる影響への対応。",
       "details": "2024年12月2日に従来の健康保険証の新規発行が終了し、マイナ保険証への移行が進められている。犯罪収益移転防止法上、健康保険証は顔写真なしの本人確認書類として利用されていたが、廃止に伴い取扱いが変更される。\n\n【金融機関のシステム対応ポイント】\n・本人確認書類の選択肢から健康保険証を段階的に除外\n・経過措置期間中の取扱いルール設定（資格確認書等）\n・窓口・Webの本人確認書類選択UIの改修\n・資格確認書の本人確認書類としての取扱い実装\n・顧客への案内・誘導フローの変更",
       "source": "厚生労働省・金融庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.mhlw.go.jp/stf/newpage_08277.html",
       "publishedDate": "2024-12-02",
       "systemImpact": "high",
       "tags": ["健康保険証", "マイナ保険証", "本人確認書類", "資格確認書"],
       "deadlineDate": "2025-12-01",
       "deadlineNote": "経過措置期間（最長1年）",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "マイナ保険証について（厚生労働省）", "url": "https://www.mhlw.go.jp/stf/newpage_08277.html" },
+        { "title": "マイナンバーカードの健康保険証利用（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber/insurance-card" },
+        { "title": "健康保険証の廃止スケジュール（NHK）", "url": "https://www3.nhk.or.jp/news/html/20241202/k10014625001000.html" }
+      ]
     },
     {
       "id": "item-008",
@@ -163,13 +162,18 @@
       "summary": "法人顧客の取引時確認における実質的支配者（BO: Beneficial Owner）情報の確認・管理の強化。法務局の実質的支配者情報一覧制度との連携。",
       "details": "FATF（金融活動作業部会）の第4次対日審査結果を踏まえ、法人の実質的支配者情報の透明性向上が求められている。法務局による「実質的支配者情報一覧の保管制度」の活用促進と合わせ、金融機関における確認プロセスの強化が進められている。\n\n【金融機関のシステム対応ポイント】\n・法務局の実質的支配者情報一覧API連携（将来的）\n・BO情報の定期的な更新確認フロー\n・25%超の議決権保有者の自動スクリーニング\n・多層構造法人の支配関係図の管理\n・BO情報変更時のアラート・再確認トリガー\n・リスクベースでのBO確認頻度設定",
       "source": "金融庁・法務省",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.moj.go.jp/MINJI/minji06_00116.html",
       "publishedDate": "2025-03-15",
       "systemImpact": "high",
       "tags": ["実質的支配者", "BO", "法人確認", "FATF", "取引時確認"],
       "deadlineDate": "",
       "deadlineNote": "継続的な対応強化が求められる",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "実質的支配者情報一覧の保管等について（法務省）", "url": "https://www.moj.go.jp/MINJI/minji06_00116.html" },
+        { "title": "FATF第4次対日相互審査報告書（金融庁）", "url": "https://www.fsa.go.jp/inter/etc/20210830.html" },
+        { "title": "法人の実質的支配者の確認について（全銀協）", "url": "https://www.zenginkyo.or.jp/topic/detail/nid/9901/" }
+      ]
     },
     {
       "id": "item-009",
@@ -178,13 +182,19 @@
       "summary": "疑わしい取引の届出（STR）のオンライン届出システムの改善と、AI/機械学習を活用した検知の高度化に関する動向。",
       "details": "FIU（資金情報機関: JAFIC）への疑わしい取引の届出について、届出プロセスのデジタル化と検知精度の向上が進められている。\n\n【金融機関のシステム対応ポイント】\n・JAFIC届出システムとのAPI連携強化\n・取引モニタリングシステムのAI/ML導入\n・シナリオベース＋AI検知のハイブリッド運用\n・届出データのXML/JSON形式対応\n・リスク評価モデルの定期的な見直し機能\n・検知ルールのチューニング支援ダッシュボード",
       "source": "警察庁（JAFIC）",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/index.html",
       "publishedDate": "2025-04-10",
       "systemImpact": "medium",
       "tags": ["STR", "疑わしい取引", "JAFIC", "AI検知", "取引モニタリング"],
       "deadlineDate": "",
       "deadlineNote": "",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "JAFIC（犯罪収益移転防止対策室）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/index.html" },
+        { "title": "疑わしい取引の届出について（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/todoke/index.html" },
+        { "title": "犯罪収益移転危険度調査書（NRA）（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/nra/nra.html" },
+        { "title": "年次報告書（JAFIC）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/nenzihokokusyo/nenzihokokusyo.html" }
+      ]
     },
     {
       "id": "item-010",
@@ -193,13 +203,18 @@
       "summary": "犯罪収益移転防止法のガイドラインで求められる継続的顧客管理（CDD: Customer Due Diligence）のシステム実装要件。",
       "details": "金融庁のマネロン・テロ資金供与・拡散金融対策ガイドラインにおいて、継続的顧客管理の実効性確保が強く求められている。2024年3月末の対応期限を踏まえ、多くの金融機関がシステム対応を進めてきたが、さらなる高度化が必要。\n\n【金融機関のシステム対応ポイント】\n・顧客リスク格付の自動計算・定期的な見直しエンジン\n・定期的な顧客情報更新の案内・督促フロー\n・アンケート（確認書）の電子配信・回収システム\n・未回答顧客の段階的な取引制限機能\n・顧客情報の鮮度管理ダッシュボード\n・リスクに応じた確認頻度の自動設定",
       "source": "金融庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.fsa.go.jp/common/law/amlcft/amlcft_guidelines.html",
       "publishedDate": "2025-02-01",
       "systemImpact": "high",
       "tags": ["CDD", "継続的顧客管理", "顧客リスク格付", "ガイドライン"],
       "deadlineDate": "",
       "deadlineNote": "2024年3月末期限後も継続的な高度化が求められる",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "マネロン・テロ資金供与・拡散金融対策ガイドライン（金融庁）", "url": "https://www.fsa.go.jp/common/law/amlcft/amlcft_guidelines.html" },
+        { "title": "AML/CFTに関する有識者会議（金融庁）", "url": "https://www.fsa.go.jp/singi/amlcft/index.html" },
+        { "title": "2024年3月末期限への対応状況（金融庁）", "url": "https://www.fsa.go.jp/news/r5/ginkou/20240401.html" }
+      ]
     },
     {
       "id": "item-011",
@@ -208,13 +223,19 @@
       "summary": "国連・外為法に基づく制裁リスト（SDN等）およびPEPs（外国の重要な公的地位を有する者）のスクリーニングのリアルタイム対応。",
       "details": "拡散金融対策の強化に伴い、制裁リストの即時反映とスクリーニング精度の向上が求められている。\n\n【金融機関のシステム対応ポイント】\n・制裁リスト（外為法・国連安保理決議等）の即時更新機能\n・取引時のリアルタイムスクリーニング\n・あいまい検索（Fuzzy matching）の精度向上\n・PEPs判定の自動化と定期的な再スクリーニング\n・ヒット時のアラート・エスカレーションフロー\n・名寄せ精度の向上（漢字/カナ/ローマ字の統合的マッチング）",
       "source": "金融庁・財務省",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.mof.go.jp/policy/international_policy/gaitame_kawase/gaitame/economic_sanctions/list.html",
       "publishedDate": "2025-03-20",
       "systemImpact": "high",
       "tags": ["制裁リスト", "PEPs", "スクリーニング", "外為法", "拡散金融"],
       "deadlineDate": "",
       "deadlineNote": "",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "経済制裁措置及び対象者リスト（財務省）", "url": "https://www.mof.go.jp/policy/international_policy/gaitame_kawase/gaitame/economic_sanctions/list.html" },
+        { "title": "外国為替及び外国貿易法に基づく資産凍結等（財務省）", "url": "https://www.mof.go.jp/policy/international_policy/gaitame_kawase/gaitame/economic_sanctions/index.html" },
+        { "title": "国連安保理制裁委員会", "url": "https://www.un.org/securitycouncil/sanctions/information" },
+        { "title": "OFAC SDNリスト（米国財務省）", "url": "https://sanctionssearch.ofac.treas.gov/" }
+      ]
     },
     {
       "id": "item-012",
@@ -223,13 +244,19 @@
       "summary": "2026年度中の導入が予定されている次期マイナンバーカードの仕様変更に伴うシステム対応準備。電子証明書の仕様変更、暗証番号の扱い変更等。",
       "details": "デジタル庁が2026年度中の交付開始を目指す次期マイナンバーカードでは、以下の変更が想定されている。\n\n・カード券面からの性別表記削除\n・暗証番号の統合（現行の4種類から簡素化）\n・電子証明書の有効期間変更の可能性\n・新旧カード並行期間の対応\n\n【金融機関のシステム対応ポイント】\n・新カードのICチップ仕様への対応（読取りライブラリの更新）\n・暗証番号体系変更への対応\n・新旧カード判別ロジックの実装\n・4情報のうち性別の取扱い変更への対応\n・電子証明書の新仕様への対応\n・移行期間中の旧カードとの互換性維持",
       "source": "デジタル庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.digital.go.jp/policies/mynumber/next-generation-card",
       "publishedDate": "2025-05-20",
       "systemImpact": "critical",
       "tags": ["マイナンバーカード", "次期カード", "ICチップ", "電磁的記録", "電子証明書", "仕様変更"],
       "deadlineDate": "2026-12-31",
       "deadlineNote": "2026年度中の交付開始予定",
-      "isNew": true
+      "isNew": true,
+      "relatedLinks": [
+        { "title": "次期マイナンバーカードについて（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber/next-generation-card" },
+        { "title": "マイナンバーカード総合サイト（J-LIS）", "url": "https://www.kojinbango-card.go.jp/" },
+        { "title": "次期マイナカード、性別記載なくし暗証番号簡素化（日経新聞）", "url": "https://www.nikkei.com/article/DGXZQOUA228720S5A320C2000000/" },
+        { "title": "マイナンバー制度について（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber" }
+      ]
     },
     {
       "id": "item-013",
@@ -238,13 +265,19 @@
       "summary": "施行規則改正に関するパブリックコメントの動向。マイナンバーカードによる本人確認の原則化等に関する改正案へのパブコメ。",
       "details": "犯罪収益移転防止法施行規則の改正に関するパブリックコメント（意見公募手続）の動向を注視する必要がある。\n\n特に、非対面本人確認におけるマイナンバーカード（JPKI）の原則化に関する施行規則改正案は、金融機関のシステムに大きな影響を与えるため、パブリックコメントの段階から内容を把握し、システム対応の計画に反映することが重要。\n\n【確認ポイント】\n・改正案の具体的な条文\n・経過措置の内容と期間\n・代替手段の許容範囲\n・施行日\n・業界団体（全銀協等）の意見内容",
       "source": "警察庁・金融庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://public-comment.e-gov.go.jp/",
       "publishedDate": "2025-05-01",
       "systemImpact": "high",
       "tags": ["パブリックコメント", "施行規則改正", "意見公募", "JPKI原則化"],
       "deadlineDate": "",
       "deadlineNote": "パブコメ締切に注意",
-      "isNew": true
+      "isNew": true,
+      "relatedLinks": [
+        { "title": "e-Gov パブリックコメント", "url": "https://public-comment.e-gov.go.jp/" },
+        { "title": "犯罪収益移転防止法関連の法令・規則（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/hansyu/houreikaisetu.html" },
+        { "title": "犯罪収益移転防止法（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=419AC0000000022" },
+        { "title": "犯罪収益移転防止法施行規則（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=420M60400000007" }
+      ]
     },
     {
       "id": "item-014",
@@ -253,13 +286,19 @@
       "summary": "犯罪収益移転防止法上の各種書面（取引記録等）の電子化において、マイナンバーカードの署名用電子証明書を用いた電子署名の活用。",
       "details": "マイナンバーカードの署名用電子証明書（RSA 2048bit / SHA-256）を用いた電子署名は、電子署名法上の「認定認証業務」に準ずる信頼性を有し、犯罪収益移転防止法関連の記録の電磁的保存にも活用できる。\n\n【金融機関のシステム対応ポイント】\n・署名用電子証明書を用いた電子署名の検証機能\n・署名付き取引記録の電磁的保存\n・長期署名（PAdES/XAdES）への対応\n・タイムスタンプとの組み合わせ\n・署名検証ログの保管",
       "source": "デジタル庁・総務省",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.soumu.go.jp/kojinbango_card/03.html",
       "publishedDate": "2025-02-10",
       "systemImpact": "medium",
       "tags": ["署名用電子証明書", "電子署名", "電磁的記録", "マイナンバーカード", "PAdES", "長期署名"],
       "deadlineDate": "",
       "deadlineNote": "",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "マイナンバーカードの公的個人認証サービス（総務省）", "url": "https://www.soumu.go.jp/kojinbango_card/03.html" },
+        { "title": "公的個人認証サービス（JPKI）ポータルサイト", "url": "https://www.jpki.go.jp/" },
+        { "title": "電子署名法（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=412AC0000000102" },
+        { "title": "タイムスタンプの認定制度について（総務省）", "url": "https://www.soumu.go.jp/main_sosiki/joho_tsusin/top/ninshou-law/timestamp.html" }
+      ]
     },
     {
       "id": "item-015",
@@ -268,13 +307,19 @@
       "summary": "将来予定されるFATF第5次対日相互審査に向けた、犯罪収益移転防止法を含むAML/CFTフレームワークの対応準備。",
       "details": "FATF第4次審査での指摘事項（重点フォローアップ対象）への対応状況が引き続き注視されており、第5次審査に向けた準備も進められている。\n\n【金融機関のシステム対応ポイント】\n・リスク評価書の定期的な見直し・システム反映\n・対応状況の自己評価・ギャップ分析ツール\n・規制変更の迅速な反映体制\n・監査証跡の完全な電子化\n・統合的なAML/CFTシステムの構築",
       "source": "金融庁",
-      "sourceUrl": "",
+      "sourceUrl": "https://www.fsa.go.jp/inter/etc/20210830.html",
       "publishedDate": "2025-04-20",
       "systemImpact": "medium",
       "tags": ["FATF", "相互審査", "AML/CFT", "リスク評価"],
       "deadlineDate": "",
       "deadlineNote": "第5次審査の具体的スケジュールは未定",
-      "isNew": false
+      "isNew": false,
+      "relatedLinks": [
+        { "title": "FATF第4次対日相互審査報告書（金融庁）", "url": "https://www.fsa.go.jp/inter/etc/20210830.html" },
+        { "title": "FATF公式サイト", "url": "https://www.fatf-gafi.org/" },
+        { "title": "FATF勧告の概要（金融庁）", "url": "https://www.fsa.go.jp/inter/etc/fatf_kankoku.html" },
+        { "title": "マネロン対策の国際的な動向（財務省）", "url": "https://www.mof.go.jp/policy/international_policy/convention/fatf/index.html" }
+      ]
     }
   ],
   "notifications": [
@@ -313,5 +358,13 @@
       "relatedItemId": "item-003",
       "isRead": false
     }
+  ],
+  "rssFeeds": [
+    { "name": "金融庁 新着情報", "url": "https://www.fsa.go.jp/fsaNewsRss.rdf", "category": "監督官庁" },
+    { "name": "警察庁 JAFIC", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/index.html", "category": "犯収法" },
+    { "name": "デジタル庁 新着情報", "url": "https://www.digital.go.jp/news", "category": "マイナンバー" },
+    { "name": "e-Gov パブリックコメント", "url": "https://public-comment.e-gov.go.jp/", "category": "パブコメ" },
+    { "name": "全銀協 トピックス", "url": "https://www.zenginkyo.or.jp/topic/", "category": "業界団体" },
+    { "name": "財務省 経済制裁", "url": "https://www.mof.go.jp/policy/international_policy/gaitame_kawase/gaitame/economic_sanctions/index.html", "category": "制裁" }
   ]
 }
