@@ -360,11 +360,27 @@
     }
   ],
   "rssFeeds": [
-    { "name": "金融庁 新着情報", "url": "https://www.fsa.go.jp/fsaNewsRss.rdf", "category": "監督官庁" },
-    { "name": "警察庁 JAFIC", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/index.html", "category": "犯収法" },
-    { "name": "デジタル庁 新着情報", "url": "https://www.digital.go.jp/news", "category": "マイナンバー" },
-    { "name": "e-Gov パブリックコメント", "url": "https://public-comment.e-gov.go.jp/", "category": "パブコメ" },
-    { "name": "全銀協 トピックス", "url": "https://www.zenginkyo.or.jp/topic/", "category": "業界団体" },
-    { "name": "財務省 経済制裁", "url": "https://www.mof.go.jp/policy/international_policy/gaitame_kawase/gaitame/economic_sanctions/index.html", "category": "制裁" }
-  ]
+    { "name": "金融庁 報道発表", "url": "https://www.fsa.go.jp/news/index.html", "category": "監督官庁" },
+    { "name": "金融庁 AML/CFT", "url": "https://www.fsa.go.jp/policy/amlcft/index.html", "category": "マネロン対策" },
+    { "name": "警察庁 犯罪収益移転防止", "url": "https://www.npa.go.jp/bureau/sosikihanzai/hansyu/main.html", "category": "犯収法" },
+    { "name": "警察庁 JAFIC 年次報告", "url": "https://www.npa.go.jp/bureau/sosikihanzai/jafic/nenzihokokusyo/nenzihokokusyo.html", "category": "犯収法" },
+    { "name": "デジタル庁 マイナンバー", "url": "https://www.digital.go.jp/policies/mynumber", "category": "マイナンバー" },
+    { "name": "J-LIS 公的個人認証", "url": "https://www.jpki.go.jp/", "category": "JPKI" },
+    { "name": "e-Gov パブリックコメント", "url": "https://public-comment.e-gov.go.jp/servlet/Public", "category": "パブコメ" },
+    { "name": "全銀協 トピックス", "url": "https://www.zenginkyo.or.jp/abstract/news/", "category": "業界団体" },
+    { "name": "財務省 経済制裁措置", "url": "https://www.mof.go.jp/policy/international_policy/gaitame_kawase/gaitame/economic_sanctions/index.html", "category": "制裁" },
+    { "name": "法務省 実質的支配者", "url": "https://www.moj.go.jp/MINJI/minji06_00116.html", "category": "BO確認" }
+  ],
+  "schedule": [
+    { "date": "2024-12-02", "label": "健康保険証 新規発行終了", "itemId": "item-007", "type": "regulation" },
+    { "date": "2025-03-31", "label": "マネロンGL対応期限（CDD高度化）", "itemId": "item-010", "type": "regulation" },
+    { "date": "2025-06-30", "label": "施行規則改正パブコメ締切（想定）", "itemId": "item-013", "type": "regulation" },
+    { "date": "2025-09-30", "label": "ホ方式廃止方針決定（見込み）", "itemId": "item-004", "type": "regulation" },
+    { "date": "2025-12-01", "label": "健康保険証 経過措置期間終了", "itemId": "item-007", "type": "deadline" },
+    { "date": "2025-12-31", "label": "JPKI本人確認原則化 施行予定", "itemId": "item-001", "type": "deadline" },
+    { "date": "2026-03-31", "label": "スマホJPKI全面展開（想定）", "itemId": "item-003", "type": "regulation" },
+    { "date": "2026-06-30", "label": "ホ方式廃止（想定期限）", "itemId": "item-004", "type": "deadline" },
+    { "date": "2026-12-31", "label": "次期マイナンバーカード交付開始", "itemId": "item-012", "type": "deadline" }
+  ],
+  "devSchedule": []
 }

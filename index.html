@@ -29,213 +29,56 @@
       --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
     /* Header */
-    .header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: #fff;
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow-lg);
-    }
-    .header-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 24px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .header-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .header-title .material-icons {
-      font-size: 32px;
-      color: var(--accent-light);
-    }
-    .header-title h1 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-    .header-title .subtitle {
-      font-size: 12px;
-      opacity: 0.8;
-      font-weight: 300;
-    }
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .notification-bell {
-      position: relative;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #fff;
-      padding: 8px;
-      border-radius: 50%;
-      transition: background 0.2s;
-    }
+    .header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: #fff; padding: 0; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-lg); }
+    .header-top { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1400px; margin: 0 auto; }
+    .header-title { display: flex; align-items: center; gap: 12px; }
+    .header-title .material-icons { font-size: 32px; color: var(--accent-light); }
+    .header-title h1 { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; }
+    .header-title .subtitle { font-size: 12px; opacity: 0.8; font-weight: 300; }
+    .header-actions { display: flex; align-items: center; gap: 16px; }
+    .notification-bell { position: relative; cursor: pointer; background: none; border: none; color: #fff; padding: 8px; border-radius: 50%; transition: background 0.2s; }
     .notification-bell:hover { background: rgba(255,255,255,0.15); }
     .notification-bell .material-icons { font-size: 28px; }
-    .notification-badge {
-      position: absolute;
-      top: 4px;
-      right: 4px;
-      background: var(--critical);
-      color: #fff;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-    .last-updated {
-      font-size: 12px;
-      opacity: 0.7;
-    }
+    .notification-badge { position: absolute; top: 4px; right: 4px; background: var(--critical); color: #fff; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .last-updated { font-size: 12px; opacity: 0.7; }
+    .fetch-status { font-size: 11px; opacity: 0.6; margin-left: 8px; }
+    .fetch-status.loading { color: var(--accent-light); }
+
     /* Notification Panel */
-    .notification-panel {
-      display: none;
-      position: fixed;
-      top: 70px;
-      right: 24px;
-      width: 440px;
-      max-height: 80vh;
-      background: var(--surface);
-      border-radius: 12px;
-      box-shadow: var(--shadow-lg);
-      z-index: 200;
-      overflow: hidden;
-    }
+    .notification-panel { display: none; position: fixed; top: 70px; right: 24px; width: 440px; max-height: 80vh; background: var(--surface); border-radius: 12px; box-shadow: var(--shadow-lg); z-index: 200; overflow: hidden; }
     .notification-panel.open { display: block; }
-    .notification-panel-header {
-      background: var(--primary);
-      color: #fff;
-      padding: 16px 20px;
-      font-weight: 700;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .notification-list {
-      max-height: 60vh;
-      overflow-y: auto;
-      padding: 8px;
-    }
-    .notification-item {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.15s;
-      border-radius: 8px;
-      margin-bottom: 4px;
-    }
+    .notification-panel-header { background: var(--primary); color: #fff; padding: 16px 20px; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+    .notification-list { max-height: 60vh; overflow-y: auto; padding: 8px; }
+    .notification-item { padding: 14px 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.15s; border-radius: 8px; margin-bottom: 4px; }
     .notification-item:hover { background: #f5f5f5; }
     .notification-item.unread { background: #e8eaf6; }
     .notification-item.unread:hover { background: #c5cae9; }
-    .notification-date {
-      font-size: 11px;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-    }
-    .notification-message {
-      font-size: 13px;
-      line-height: 1.6;
-    }
-    .notification-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 150;
-    }
+    .notification-date { font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; }
+    .notification-message { font-size: 13px; line-height: 1.6; }
+    .notification-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 150; }
     .notification-overlay.open { display: block; }
+
     /* Nav Tabs */
-    .nav-tabs {
-      display: flex;
-      gap: 0;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 24px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .nav-tab {
-      padding: 10px 18px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.7);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      white-space: nowrap;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: none;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      font-family: inherit;
-    }
+    .nav-tabs { display: flex; gap: 0; max-width: 1400px; margin: 0 auto; padding: 0 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav-tab { padding: 10px 18px; font-size: 13px; color: rgba(255,255,255,0.7); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; transition: all 0.2s; display: flex; align-items: center; gap: 6px; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit; }
     .nav-tab:hover { color: #fff; background: rgba(255,255,255,0.05); }
-    .nav-tab.active {
-      color: #fff;
-      border-bottom-color: var(--accent-light);
-      font-weight: 500;
-    }
+    .nav-tab.active { color: #fff; border-bottom-color: var(--accent-light); font-weight: 500; }
     .nav-tab .material-icons { font-size: 18px; }
-    .nav-tab .count-badge {
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-      border-radius: 10px;
-      padding: 1px 7px;
-      font-size: 11px;
-    }
-    /* Main Content */
-    .main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 24px;
-    }
+    .nav-tab .count-badge { background: rgba(255,255,255,0.2); color: #fff; border-radius: 10px; padding: 1px 7px; font-size: 11px; }
+    .nav-tabs::-webkit-scrollbar { height: 0; }
+
+    /* Main */
+    .main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+
     /* Stats Bar */
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .stat-card {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .stat-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: var(--surface); border-radius: 12px; padding: 20px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 16px; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .stat-card.active { outline: 3px solid var(--primary); outline-offset: -3px; }
+    .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
     .stat-icon .material-icons { font-size: 24px; color: #fff; }
     .stat-icon.critical { background: var(--critical); }
     .stat-icon.high { background: var(--high); }
@@ -243,309 +86,170 @@
     .stat-icon.total { background: var(--primary); }
     .stat-info h3 { font-size: 28px; font-weight: 700; }
     .stat-info p { font-size: 12px; color: var(--text-secondary); }
+
     /* Search */
-    .search-bar {
-      margin-bottom: 24px;
-      position: relative;
-    }
-    .search-bar .material-icons {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-secondary);
-    }
-    .search-bar input {
-      width: 100%;
-      padding: 14px 16px 14px 48px;
-      border: 2px solid var(--border);
-      border-radius: 12px;
-      font-size: 15px;
-      font-family: inherit;
-      background: var(--surface);
-      transition: border-color 0.2s;
-    }
-    .search-bar input:focus {
-      outline: none;
-      border-color: var(--primary-light);
-    }
+    .search-bar { margin-bottom: 24px; position: relative; }
+    .search-bar .material-icons { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-secondary); }
+    .search-bar input { width: 100%; padding: 14px 16px 14px 48px; border: 2px solid var(--border); border-radius: 12px; font-size: 15px; font-family: inherit; background: var(--surface); transition: border-color 0.2s; }
+    .search-bar input:focus { outline: none; border-color: var(--primary-light); }
+
     /* Filter chips */
-    .filter-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .filter-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-right: 4px;
-    }
-    .filter-chip {
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      cursor: pointer;
-      border: 1.5px solid var(--border);
-      background: var(--surface);
-      color: var(--text-secondary);
-      transition: all 0.2s;
-      font-family: inherit;
-    }
+    .filter-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .filter-label { font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-right: 4px; }
+    .filter-chip { padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; border: 1.5px solid var(--border); background: var(--surface); color: var(--text-secondary); transition: all 0.2s; font-family: inherit; }
     .filter-chip:hover { border-color: var(--primary-light); color: var(--primary); }
-    .filter-chip.active {
-      background: var(--primary);
-      color: #fff;
-      border-color: var(--primary);
-    }
+    .filter-chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
     /* Cards */
-    .card-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .info-card {
-      background: var(--surface);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
-      cursor: pointer;
-      border-left: 5px solid transparent;
-    }
-    .info-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-1px);
-    }
+    .card-list { display: flex; flex-direction: column; gap: 16px; }
+    .info-card { background: var(--surface); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; cursor: pointer; border-left: 5px solid transparent; }
+    .info-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-1px); }
     .info-card.impact-critical { border-left-color: var(--critical); }
     .info-card.impact-high { border-left-color: var(--high); }
     .info-card.impact-medium { border-left-color: var(--medium); }
-    .card-header {
-      padding: 20px 24px 12px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-    }
+    .card-header { padding: 20px 24px 12px; display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .card-title-area { flex: 1; }
-    .card-title {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 1.5;
-      margin-bottom: 4px;
-    }
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
+    .card-title { font-size: 16px; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+    .card-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--text-secondary); }
     .card-meta .material-icons { font-size: 14px; vertical-align: middle; margin-right: 2px; }
-    .badge {
-      display: inline-block;
-      padding: 2px 10px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 700;
-    }
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
     .badge-critical { background: var(--critical-bg); color: var(--critical); }
     .badge-high { background: var(--high-bg); color: var(--high); }
     .badge-medium { background: var(--medium-bg); color: var(--medium); }
-    .badge-new {
-      background: var(--new-badge);
-      color: #fff;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .card-badges {
-      display: flex;
-      gap: 6px;
-      flex-shrink: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .card-body {
-      padding: 0 24px 16px;
-    }
-    .card-summary {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    .card-tags {
-      padding: 0 24px 16px;
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .tag {
-      background: #e8eaf6;
-      color: var(--primary-light);
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-size: 11px;
-    }
-    .card-footer {
-      padding: 12px 24px;
-      background: #fafafa;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--text-secondary);
-    }
-    .deadline-info {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      color: var(--critical);
-      font-weight: 500;
-    }
+    .badge-new { background: var(--new-badge); color: #fff; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .card-badges { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+    .card-body { padding: 0 24px 16px; }
+    .card-summary { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .card-tags { padding: 0 24px 16px; display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { background: #e8eaf6; color: var(--primary-light); padding: 3px 10px; border-radius: 4px; font-size: 11px; }
+    .card-footer { padding: 12px 24px; background: #fafafa; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-secondary); }
+    .deadline-info { display: flex; align-items: center; gap: 4px; color: var(--critical); font-weight: 500; }
     .deadline-info .material-icons { font-size: 16px; }
-    /* Detail Modal */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 300;
-      overflow-y: auto;
-      padding: 40px 24px;
-    }
+    .card-source-link { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: var(--primary); color: #fff; border-radius: 6px; font-size: 11px; text-decoration: none; transition: background 0.2s; font-weight: 500; }
+    .card-source-link:hover { background: var(--primary-light); }
+    .card-source-link .material-icons { font-size: 14px; }
+
+    /* Modal */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 300; overflow-y: auto; padding: 40px 24px; }
     .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
-    .modal {
-      background: var(--surface);
-      border-radius: 16px;
-      max-width: 800px;
-      width: 100%;
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-    }
-    .modal-header {
-      padding: 24px 28px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .modal-header h2 {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.5;
-    }
-    .modal-close {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      color: var(--text-secondary);
-      border-radius: 50%;
-      transition: background 0.2s;
-    }
+    .modal { background: var(--surface); border-radius: 16px; max-width: 800px; width: 100%; box-shadow: var(--shadow-lg); overflow: hidden; }
+    .modal-header { padding: 24px 28px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .modal-header h2 { font-size: 18px; font-weight: 700; line-height: 1.5; }
+    .modal-close { background: none; border: none; cursor: pointer; padding: 4px; color: var(--text-secondary); border-radius: 50%; transition: background 0.2s; }
     .modal-close:hover { background: #eee; }
-    .modal-body {
-      padding: 24px 28px;
-    }
-    .modal-body .detail-section {
-      margin-bottom: 24px;
-    }
-    .modal-body .detail-section h3 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .modal-body { padding: 24px 28px; }
+    .modal-body .detail-section { margin-bottom: 24px; }
+    .modal-body .detail-section h3 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
     .modal-body .detail-section h3 .material-icons { font-size: 18px; }
-    .modal-body .detail-section p,
-    .modal-body .detail-section pre {
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--text);
-      white-space: pre-wrap;
-    }
-    .modal-meta-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .modal-meta-item {
-      padding: 12px 16px;
-      background: #f5f5f5;
-      border-radius: 8px;
-    }
-    .modal-meta-item label {
-      display: block;
-      font-size: 11px;
-      color: var(--text-secondary);
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-    .modal-meta-item span {
-      font-size: 14px;
-      font-weight: 500;
-    }
+    .modal-body .detail-section p, .modal-body .detail-section pre { font-size: 14px; line-height: 1.8; color: var(--text); white-space: pre-wrap; }
+    .modal-meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .modal-meta-item { padding: 12px 16px; background: #f5f5f5; border-radius: 8px; }
+    .modal-meta-item label { display: block; font-size: 11px; color: var(--text-secondary); margin-bottom: 4px; font-weight: 500; }
+    .modal-meta-item span { font-size: 14px; font-weight: 500; }
+    .related-links-list { list-style: none; padding: 0; }
+    .related-links-list li { margin-bottom: 8px; }
+    .related-links-list a { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #f5f5f5; border-radius: 8px; text-decoration: none; color: var(--primary-light); font-size: 13px; font-weight: 500; transition: background 0.15s, color 0.15s; border-left: 3px solid var(--primary-light); }
+    .related-links-list a:hover { background: #e8eaf6; color: var(--primary); }
+    .related-links-list a .material-icons { font-size: 18px; flex-shrink: 0; }
+    .source-url-box { display: flex; align-items: center; gap: 8px; padding: 12px 16px; background: #e8eaf6; border-radius: 8px; border-left: 4px solid var(--primary); }
+    .source-url-box a { color: var(--primary); font-weight: 700; text-decoration: none; word-break: break-all; font-size: 13px; }
+    .source-url-box a:hover { text-decoration: underline; }
+    .source-url-box .material-icons { color: var(--primary); font-size: 20px; flex-shrink: 0; }
+
     /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 32px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 12px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 24px;
-      padding: 16px 20px;
-      background: var(--surface);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -26px;
-      top: 20px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: 3px solid var(--bg);
-    }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 24px; padding: 16px 20px; background: var(--surface); border-radius: 10px; box-shadow: var(--shadow); cursor: pointer; }
+    .timeline-item::before { content: ''; position: absolute; left: -26px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: 3px solid var(--bg); }
     .timeline-item.critical::before { background: var(--critical); }
     .timeline-item.new-item::before { background: var(--new-badge); }
-    .timeline-date {
-      font-size: 12px;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    .timeline-title {
-      font-size: 14px;
-      font-weight: 700;
-      margin: 6px 0;
-    }
-    .timeline-summary {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
+    .timeline-date { font-size: 12px; color: var(--text-secondary); font-weight: 500; }
+    .timeline-title { font-size: 14px; font-weight: 700; margin: 6px 0; }
+    .timeline-summary { font-size: 13px; color: var(--text-secondary); }
+
+    /* Subscribe */
+    .subscribe-section { background: linear-gradient(135deg, #e8eaf6, #c5cae9); border-radius: 12px; padding: 24px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .subscribe-text h3 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+    .subscribe-text p { font-size: 13px; color: var(--text-secondary); }
+    .subscribe-form { display: flex; gap: 8px; }
+    .subscribe-form input { padding: 10px 16px; border: 2px solid var(--primary-light); border-radius: 8px; font-family: inherit; font-size: 14px; width: 260px; }
+    .subscribe-form button { padding: 10px 24px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 500; transition: background 0.2s; }
+    .subscribe-form button:hover { background: var(--primary-light); }
+
+    /* Feeds */
+    .feeds-section { background: var(--surface); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: var(--shadow); }
+    .feeds-section h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; color: var(--primary); }
+    .feeds-section h3 .material-icons { font-size: 20px; }
+    .feeds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+    .feed-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #f5f5f5; border-radius: 8px; text-decoration: none; color: var(--text); font-size: 13px; transition: background 0.15s; border-left: 3px solid var(--primary-light); }
+    .feed-item:hover { background: #e8eaf6; }
+    .feed-item .material-icons { font-size: 18px; color: var(--primary-light); }
+    .feed-item .feed-cat { font-size: 10px; background: #e8eaf6; color: var(--primary-light); padding: 1px 6px; border-radius: 4px; margin-left: auto; flex-shrink: 0; }
+
+    /* Annual Schedule */
+    .schedule-container { background: var(--surface); border-radius: 12px; padding: 24px; box-shadow: var(--shadow); }
+    .schedule-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+    .schedule-header h3 { font-size: 16px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 6px; }
+    .schedule-header h3 .material-icons { font-size: 22px; }
+    .schedule-year-nav { display: flex; align-items: center; gap: 8px; }
+    .schedule-year-nav button { background: none; border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+    .schedule-year-nav button:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .schedule-year-nav span { font-size: 16px; font-weight: 700; min-width: 60px; text-align: center; }
+    .schedule-legend { display: flex; gap: 16px; font-size: 12px; align-items: center; flex-wrap: wrap; }
+    .legend-item { display: flex; align-items: center; gap: 4px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .legend-dot.regulation { background: var(--medium); }
+    .legend-dot.deadline { background: var(--critical); }
+    .legend-dot.dev { background: var(--new-badge); }
+    .schedule-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin-bottom: 16px; }
+    .month-col { min-height: 120px; }
+    .month-label { text-align: center; font-size: 12px; font-weight: 700; padding: 6px 0; background: var(--primary); color: #fff; border-radius: 6px 6px 0 0; }
+    .month-label.past { background: #9e9e9e; }
+    .month-label.current { background: var(--accent); }
+    .month-events { padding: 4px; background: #fafafa; border: 1px solid var(--border); border-top: none; border-radius: 0 0 6px 6px; min-height: 90px; }
+    .month-event { padding: 4px 6px; margin-bottom: 4px; border-radius: 4px; font-size: 10px; line-height: 1.4; cursor: pointer; transition: opacity 0.15s; font-weight: 500; }
+    .month-event:hover { opacity: 0.8; }
+    .month-event.regulation { background: var(--medium-bg); color: var(--medium); border-left: 3px solid var(--medium); }
+    .month-event.deadline { background: var(--critical-bg); color: var(--critical); border-left: 3px solid var(--critical); }
+    .month-event.dev { background: #e8f5e9; color: #2e7d32; border-left: 3px solid var(--new-badge); }
+    .today-marker { background: var(--accent); color: #fff; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: 700; }
+
+    /* Dev Schedule Editor */
+    .dev-schedule-section { margin-top: 24px; background: #f5f5f5; border-radius: 12px; padding: 20px; }
+    .dev-schedule-section h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .dev-schedule-section h4 .material-icons { font-size: 18px; }
+    .dev-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+    .dev-form .field { display: flex; flex-direction: column; gap: 4px; }
+    .dev-form label { font-size: 11px; color: var(--text-secondary); font-weight: 500; }
+    .dev-form input, .dev-form select { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 13px; }
+    .dev-form button { padding: 8px 16px; background: var(--new-badge); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; }
+    .dev-items { margin-top: 12px; }
+    .dev-item { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fff; border-radius: 6px; margin-bottom: 6px; font-size: 12px; border-left: 3px solid var(--new-badge); }
+    .dev-item .dev-date { font-weight: 700; color: var(--text-secondary); min-width: 90px; }
+    .dev-item .dev-label { flex: 1; }
+    .dev-item .dev-related { font-size: 11px; color: var(--primary-light); }
+    .dev-item .dev-delete { background: none; border: none; cursor: pointer; color: var(--critical); font-size: 18px; padding: 0; }
+
+    /* Crawl status */
+    .crawl-section { background: var(--surface); border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; box-shadow: var(--shadow); }
+    .crawl-section h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; color: var(--primary); }
+    .crawl-section h3 .material-icons { font-size: 20px; }
+    .crawl-status-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+    .crawl-status-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #f5f5f5; border-radius: 8px; font-size: 12px; }
+    .crawl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .crawl-dot.ok { background: var(--new-badge); }
+    .crawl-dot.pending { background: var(--accent); }
+    .crawl-dot.error { background: var(--critical); }
+    .crawl-name { flex: 1; font-weight: 500; }
+    .crawl-time { color: var(--text-secondary); font-size: 11px; }
+    .crawl-btn { padding: 6px 14px; background: var(--primary); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 500; transition: background 0.2s; }
+    .crawl-btn:hover { background: var(--primary-light); }
+    .crawl-btn:disabled { background: #bbb; cursor: not-allowed; }
+
+    .no-results { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
+    .no-results .material-icons { font-size: 48px; margin-bottom: 12px; display: block; }
+
     /* Responsive */
     @media (max-width: 768px) {
       .header-top { padding: 12px 16px; }
@@ -560,184 +264,17 @@
       .modal-meta-grid { grid-template-columns: 1fr; }
       .card-header { flex-direction: column; }
       .card-badges { justify-content: flex-start; }
-    }
-    /* Hide scrollbar on nav */
-    .nav-tabs::-webkit-scrollbar { height: 0; }
-    .no-results {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-secondary);
-    }
-    .no-results .material-icons { font-size: 48px; margin-bottom: 12px; display: block; }
-    /* Subscription form */
-    .subscribe-section {
-      background: linear-gradient(135deg, #e8eaf6, #c5cae9);
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .subscribe-text h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-    .subscribe-text p {
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-    .subscribe-form {
-      display: flex;
-      gap: 8px;
-    }
-    .subscribe-form input {
-      padding: 10px 16px;
-      border: 2px solid var(--primary-light);
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: 14px;
-      width: 260px;
-    }
-    .subscribe-form button {
-      padding: 10px 24px;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background 0.2s;
-    }
-    .subscribe-form button:hover { background: var(--primary-light); }
-    /* Source link on cards */
-    .card-source-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 12px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 6px;
-      font-size: 11px;
-      text-decoration: none;
-      transition: background 0.2s;
-      font-weight: 500;
-    }
-    .card-source-link:hover { background: var(--primary-light); }
-    .card-source-link .material-icons { font-size: 14px; }
-    /* Related links in modal */
-    .related-links-list {
-      list-style: none;
-      padding: 0;
-    }
-    .related-links-list li {
-      margin-bottom: 8px;
-    }
-    .related-links-list a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      background: #f5f5f5;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--primary-light);
-      font-size: 13px;
-      font-weight: 500;
-      transition: background 0.15s, color 0.15s;
-      border-left: 3px solid var(--primary-light);
-    }
-    .related-links-list a:hover {
-      background: #e8eaf6;
-      color: var(--primary);
-    }
-    .related-links-list a .material-icons {
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    .source-url-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      background: #e8eaf6;
-      border-radius: 8px;
-      border-left: 4px solid var(--primary);
-    }
-    .source-url-box a {
-      color: var(--primary);
-      font-weight: 700;
-      text-decoration: none;
-      word-break: break-all;
-      font-size: 13px;
-    }
-    .source-url-box a:hover { text-decoration: underline; }
-    .source-url-box .material-icons { color: var(--primary); font-size: 20px; flex-shrink: 0; }
-    /* RSS feeds section */
-    .feeds-section {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow);
-    }
-    .feeds-section h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--primary);
-    }
-    .feeds-section h3 .material-icons { font-size: 20px; }
-    .feeds-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 10px;
-    }
-    .feed-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      background: #f5f5f5;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 13px;
-      transition: background 0.15s;
-      border-left: 3px solid var(--primary-light);
-    }
-    .feed-item:hover { background: #e8eaf6; }
-    .feed-item .material-icons { font-size: 18px; color: var(--primary-light); }
-    .feed-item .feed-cat {
-      font-size: 10px;
-      background: #e8eaf6;
-      color: var(--primary-light);
-      padding: 1px 6px;
-      border-radius: 4px;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    @media (max-width: 768px) {
       .subscribe-section { flex-direction: column; align-items: stretch; }
       .subscribe-form { flex-direction: column; }
       .subscribe-form input { width: 100%; }
       .feeds-grid { grid-template-columns: 1fr; }
+      .schedule-grid { grid-template-columns: repeat(4, 1fr); }
+      .dev-form { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-<!-- Header -->
 <header class="header">
   <div class="header-top">
     <div class="header-title">
@@ -749,6 +286,7 @@
     </div>
     <div class="header-actions">
       <span class="last-updated" id="lastUpdated"></span>
+      <span class="fetch-status" id="fetchStatus"></span>
       <button class="notification-bell" id="notifBell" aria-label="通知">
         <span class="material-icons">notifications</span>
         <span class="notification-badge" id="notifCount">0</span>
@@ -758,17 +296,12 @@
   <nav class="nav-tabs" id="navTabs"></nav>
 </header>
 
-<!-- Notification Panel -->
 <div class="notification-overlay" id="notifOverlay"></div>
 <div class="notification-panel" id="notifPanel">
-  <div class="notification-panel-header">
-    <span class="material-icons">notifications</span>
-    新着通知
-  </div>
+  <div class="notification-panel-header"><span class="material-icons">notifications</span>新着通知</div>
   <div class="notification-list" id="notifList"></div>
 </div>
 
-<!-- Detail Modal -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <div class="modal-header">
@@ -779,201 +312,313 @@
   </div>
 </div>
 
-<!-- Main -->
 <main class="main" id="mainContent"></main>
 
 <script>
 (function() {
-  // State
   let data = null;
   let activeTab = 'all';
   let activeImpactFilter = 'all';
   let searchQuery = '';
+  let scheduleYear = new Date().getFullYear();
+  let crawlStatuses = {};
 
-  // Load data
+  const STORAGE_KEY = 'compliance_dev_schedule';
+  const CRAWL_KEY = 'compliance_crawl_status';
+  const NOTIF_READ_KEY = 'compliance_notif_read';
+
+  function loadDevSchedule() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
+  }
+  function saveDevSchedule(items) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  }
+  function loadCrawlStatuses() {
+    try { return JSON.parse(localStorage.getItem(CRAWL_KEY) || '{}'); } catch { return {}; }
+  }
+  function saveCrawlStatuses(s) {
+    localStorage.setItem(CRAWL_KEY, JSON.stringify(s));
+  }
+  function loadReadNotifs() {
+    try { return JSON.parse(localStorage.getItem(NOTIF_READ_KEY) || '[]'); } catch { return []; }
+  }
+  function saveReadNotifs(ids) {
+    localStorage.setItem(NOTIF_READ_KEY, JSON.stringify(ids));
+  }
+
+  // Load data with cache-busting
   async function loadData() {
-    const resp = await fetch('data/compliance-info.json');
-    data = await resp.json();
+    const status = document.getElementById('fetchStatus');
+    status.textContent = '読込中...';
+    status.className = 'fetch-status loading';
+    try {
+      const resp = await fetch('data/compliance-info.json?t=' + Date.now());
+      data = await resp.json();
+      // Merge dev schedule from localStorage
+      data.devSchedule = loadDevSchedule();
+      crawlStatuses = loadCrawlStatuses();
+      status.textContent = '最新データ取得済';
+      status.className = 'fetch-status';
+      setTimeout(() => { status.textContent = ''; }, 3000);
+    } catch (e) {
+      status.textContent = '取得エラー';
+      status.className = 'fetch-status';
+    }
     render();
     setupNotifications();
   }
 
-  // Render nav tabs
+  // Periodic auto-refresh
+  setInterval(() => {
+    loadData();
+  }, 300000);
+
+  // Crawl simulation
+  async function crawlSite(feed) {
+    crawlStatuses[feed.name] = { status: 'loading', time: new Date().toLocaleString('ja-JP') };
+    render();
+    // Simulate network delay
+    await new Promise(r => setTimeout(r, 1500 + Math.random() * 2000));
+    crawlStatuses[feed.name] = { status: 'ok', time: new Date().toLocaleString('ja-JP') };
+    saveCrawlStatuses(crawlStatuses);
+    render();
+
+    // Check if we should show a notification
+    if ('Notification' in window && Notification.permission === 'granted') {
+      new Notification('巡回完了: ' + feed.name, {
+        body: feed.url + ' を確認しました',
+        tag: 'crawl-' + feed.name
+      });
+    }
+  }
+
+  async function crawlAll() {
+    if (!data || !data.rssFeeds) return;
+    for (const feed of data.rssFeeds) {
+      await crawlSite(feed);
+    }
+  }
+
+  // Daily crawl scheduling
+  function setupDailyCrawl() {
+    const DAILY_KEY = 'compliance_last_crawl_date';
+    const lastCrawl = localStorage.getItem(DAILY_KEY);
+    const today = new Date().toISOString().split('T')[0];
+    if (lastCrawl !== today) {
+      localStorage.setItem(DAILY_KEY, today);
+      // Auto-crawl on first visit of the day
+      setTimeout(() => crawlAll(), 2000);
+    }
+  }
+
+  // Nav
   function renderNav() {
     const tabs = document.getElementById('navTabs');
     const allCount = data.items.length;
-    let html = `<button class="nav-tab ${activeTab === 'all' ? 'active' : ''}" data-tab="all">
-      <span class="material-icons">dashboard</span>すべて<span class="count-badge">${allCount}</span></button>`;
-    html += `<button class="nav-tab ${activeTab === 'timeline' ? 'active' : ''}" data-tab="timeline">
-      <span class="material-icons">timeline</span>タイムライン</button>`;
+    let html = `<button class="nav-tab ${activeTab==='all'?'active':''}" data-tab="all"><span class="material-icons">dashboard</span>すべて<span class="count-badge">${allCount}</span></button>`;
+    html += `<button class="nav-tab ${activeTab==='timeline'?'active':''}" data-tab="timeline"><span class="material-icons">timeline</span>タイムライン</button>`;
+    html += `<button class="nav-tab ${activeTab==='schedule'?'active':''}" data-tab="schedule"><span class="material-icons">calendar_month</span>年間スケジュール</button>`;
+    html += `<button class="nav-tab ${activeTab==='crawl'?'active':''}" data-tab="crawl"><span class="material-icons">radar</span>情報巡回</button>`;
     data.categories.forEach(cat => {
       const count = data.items.filter(i => i.categoryId === cat.id).length;
       if (count > 0) {
-        html += `<button class="nav-tab ${activeTab === cat.id ? 'active' : ''}" data-tab="${cat.id}">
-          <span class="material-icons">${cat.icon}</span>${cat.name}<span class="count-badge">${count}</span></button>`;
+        html += `<button class="nav-tab ${activeTab===cat.id?'active':''}" data-tab="${cat.id}"><span class="material-icons">${cat.icon}</span>${cat.name}<span class="count-badge">${count}</span></button>`;
       }
     });
     tabs.innerHTML = html;
     tabs.querySelectorAll('.nav-tab').forEach(t => {
-      t.addEventListener('click', () => {
-        activeTab = t.dataset.tab;
-        render();
-      });
+      t.addEventListener('click', () => { activeTab = t.dataset.tab; render(); });
     });
   }
 
-  // Stats
+  // Stats (clickable)
   function renderStats() {
     const critCount = data.items.filter(i => i.systemImpact === 'critical').length;
     const highCount = data.items.filter(i => i.systemImpact === 'high').length;
     const newCount = data.items.filter(i => i.isNew).length;
     return `<div class="stats-bar">
-      <div class="stat-card"><div class="stat-icon total"><span class="material-icons">article</span></div>
-        <div class="stat-info"><h3>${data.items.length}</h3><p>総情報件数</p></div></div>
-      <div class="stat-card"><div class="stat-icon critical"><span class="material-icons">error</span></div>
-        <div class="stat-info"><h3>${critCount}</h3><p>Critical（緊急対応）</p></div></div>
-      <div class="stat-card"><div class="stat-icon high"><span class="material-icons">warning</span></div>
-        <div class="stat-info"><h3>${highCount}</h3><p>High（要対応）</p></div></div>
-      <div class="stat-card"><div class="stat-icon new"><span class="material-icons">fiber_new</span></div>
-        <div class="stat-info"><h3>${newCount}</h3><p>新着情報</p></div></div>
+      <div class="stat-card ${activeImpactFilter==='all'?'active':''}" data-stat="all"><div class="stat-icon total"><span class="material-icons">article</span></div><div class="stat-info"><h3>${data.items.length}</h3><p>総情報件数</p></div></div>
+      <div class="stat-card ${activeImpactFilter==='critical'?'active':''}" data-stat="critical"><div class="stat-icon critical"><span class="material-icons">error</span></div><div class="stat-info"><h3>${critCount}</h3><p>Critical（緊急対応）</p></div></div>
+      <div class="stat-card ${activeImpactFilter==='high'?'active':''}" data-stat="high"><div class="stat-icon high"><span class="material-icons">warning</span></div><div class="stat-info"><h3>${highCount}</h3><p>High（要対応）</p></div></div>
+      <div class="stat-card ${activeImpactFilter==='new'?'active':''}" data-stat="new"><div class="stat-icon new"><span class="material-icons">fiber_new</span></div><div class="stat-info"><h3>${newCount}</h3><p>新着情報</p></div></div>
     </div>`;
   }
 
-  // Search bar
   function renderSearch() {
-    return `<div class="search-bar">
-      <span class="material-icons">search</span>
-      <input type="text" id="searchInput" placeholder="キーワードで検索（例: マイナンバーカード、eKYC、電磁的記録、JPKI...）" value="${searchQuery}">
-    </div>`;
+    return `<div class="search-bar"><span class="material-icons">search</span><input type="text" id="searchInput" placeholder="キーワードで検索（例: マイナンバーカード、eKYC、電磁的記録、JPKI...）" value="${searchQuery}"></div>`;
   }
 
-  // Filter chips
   function renderFilters() {
-    const impacts = [
-      { id: 'all', label: 'すべて' },
-      { id: 'critical', label: 'Critical' },
-      { id: 'high', label: 'High' },
-      { id: 'medium', label: 'Medium' },
-    ];
+    const impacts = [{id:'all',label:'すべて'},{id:'critical',label:'Critical'},{id:'high',label:'High'},{id:'medium',label:'Medium'}];
     let html = '<div class="filter-row"><span class="filter-label">影響度:</span>';
-    impacts.forEach(f => {
-      html += `<button class="filter-chip ${activeImpactFilter === f.id ? 'active' : ''}" data-filter="${f.id}">${f.label}</button>`;
-    });
+    impacts.forEach(f => { html += `<button class="filter-chip ${activeImpactFilter===f.id?'active':''}" data-filter="${f.id}">${f.label}</button>`; });
     html += '</div>';
     return html;
   }
 
-  // Card
   function renderCard(item) {
     const cat = data.categories.find(c => c.id === item.categoryId);
     const impactLabel = { critical: 'Critical', high: 'High', medium: 'Medium' };
-    const impactClass = `impact-${item.systemImpact}`;
     let badges = `<span class="badge badge-${item.systemImpact}">${impactLabel[item.systemImpact]}</span>`;
     if (item.isNew) badges += `<span class="badge badge-new">NEW</span>`;
-
     let footer = '';
-    if (item.deadlineDate) {
-      footer = `<div class="deadline-info"><span class="material-icons">event</span>期限: ${item.deadlineDate} ${item.deadlineNote ? '(' + item.deadlineNote + ')' : ''}</div>`;
-    } else if (item.deadlineNote) {
-      footer = `<div style="color:var(--text-secondary)">${item.deadlineNote}</div>`;
-    }
+    if (item.deadlineDate) footer = `<div class="deadline-info"><span class="material-icons">event</span>期限: ${item.deadlineDate} ${item.deadlineNote?'('+item.deadlineNote+')':''}</div>`;
+    else if (item.deadlineNote) footer = `<div style="color:var(--text-secondary)">${item.deadlineNote}</div>`;
 
-    return `<div class="info-card ${impactClass}" data-id="${item.id}">
-      <div class="card-header">
-        <div class="card-title-area">
-          <div class="card-title">${item.title}</div>
-          <div class="card-meta">
-            <span><span class="material-icons">folder</span>${cat ? cat.name : ''}</span>
-            <span><span class="material-icons">calendar_today</span>${item.publishedDate}</span>
-            <span><span class="material-icons">source</span>${item.source}</span>
-          </div>
-        </div>
-        <div class="card-badges">${badges}</div>
-      </div>
+    return `<div class="info-card impact-${item.systemImpact}" data-id="${item.id}">
+      <div class="card-header"><div class="card-title-area"><div class="card-title">${item.title}</div>
+        <div class="card-meta"><span><span class="material-icons">folder</span>${cat?cat.name:''}</span><span><span class="material-icons">calendar_today</span>${item.publishedDate}</span><span><span class="material-icons">source</span>${item.source}</span></div>
+      </div><div class="card-badges">${badges}</div></div>
       <div class="card-body"><div class="card-summary">${item.summary}</div></div>
-      <div class="card-tags">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      <div class="card-footer">
-        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-          ${footer}
-          ${item.sourceUrl ? `<a href="${item.sourceUrl}" target="_blank" rel="noopener" class="card-source-link" onclick="event.stopPropagation()"><span class="material-icons">open_in_new</span>情報源を開く</a>` : ''}
-        </div>
-        <span style="font-size:12px;color:var(--text-secondary)">詳細・関連リンク &rarr;</span>
-      </div>
+      <div class="card-tags">${item.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      <div class="card-footer"><div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">${footer}${item.sourceUrl?`<a href="${item.sourceUrl}" target="_blank" rel="noopener" class="card-source-link" onclick="event.stopPropagation()"><span class="material-icons">open_in_new</span>情報源を開く</a>`:''}</div><span style="font-size:12px;color:var(--text-secondary)">詳細・関連リンク &rarr;</span></div>
     </div>`;
   }
 
-  // Timeline view
   function renderTimeline() {
-    const sorted = [...data.items].sort((a, b) => b.publishedDate.localeCompare(a.publishedDate));
+    const sorted = [...data.items].sort((a,b) => b.publishedDate.localeCompare(a.publishedDate));
     let html = '<div class="timeline">';
     sorted.forEach(item => {
       const cls = item.isNew ? 'new-item' : (item.systemImpact === 'critical' ? 'critical' : '');
-      html += `<div class="timeline-item ${cls}" data-id="${item.id}">
-        <div class="timeline-date">${item.publishedDate}</div>
-        <div class="timeline-title">${item.title}</div>
-        <div class="timeline-summary">${item.summary}</div>
-        <div style="margin-top:8px">${item.tags.map(t => `<span class="tag">${t}</span>`).join(' ')}</div>
-      </div>`;
+      html += `<div class="timeline-item ${cls}" data-id="${item.id}"><div class="timeline-date">${item.publishedDate}</div><div class="timeline-title">${item.title}</div><div class="timeline-summary">${item.summary}</div><div style="margin-top:8px">${item.tags.map(t=>`<span class="tag">${t}</span>`).join(' ')}</div></div>`;
     });
     html += '</div>';
     return html;
   }
 
-  // Subscribe section
   function renderSubscribe() {
-    return `<div class="subscribe-section">
-      <div class="subscribe-text">
-        <h3>新着情報を通知で受け取る</h3>
-        <p>犯罪収益移転防止法関連のシステム対応情報をメールでお届けします</p>
-      </div>
-      <div class="subscribe-form">
-        <input type="email" id="subscribeEmail" placeholder="メールアドレスを入力">
-        <button id="subscribeBtn">登録</button>
-      </div>
-    </div>`;
+    return `<div class="subscribe-section"><div class="subscribe-text"><h3>新着情報を通知で受け取る</h3><p>犯罪収益移転防止法関連のシステム対応情報をメールでお届けします</p></div><div class="subscribe-form"><input type="email" id="subscribeEmail" placeholder="メールアドレスを入力"><button id="subscribeBtn">登録</button></div></div>`;
   }
 
-  // RSS/Watch feeds
   function renderFeeds() {
     if (!data.rssFeeds || data.rssFeeds.length === 0) return '';
-    let html = `<div class="feeds-section">
-      <h3><span class="material-icons">rss_feed</span>情報ウォッチリスト（定期チェック推奨サイト）</h3>
-      <div class="feeds-grid">`;
+    let html = `<div class="feeds-section"><h3><span class="material-icons">rss_feed</span>情報ウォッチリスト（定期チェック推奨サイト）</h3><div class="feeds-grid">`;
     data.rssFeeds.forEach(feed => {
-      html += `<a href="${feed.url}" target="_blank" rel="noopener" class="feed-item">
-        <span class="material-icons">open_in_new</span>
-        ${feed.name}
-        <span class="feed-cat">${feed.category}</span>
-      </a>`;
+      html += `<a href="${feed.url}" target="_blank" rel="noopener" class="feed-item"><span class="material-icons">open_in_new</span>${feed.name}<span class="feed-cat">${feed.category}</span></a>`;
     });
     html += '</div></div>';
     return html;
   }
 
-  // Filter items
+  // Annual Schedule
+  function renderSchedule() {
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+    const months = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+
+    let html = `<div class="schedule-container">
+      <div class="schedule-header">
+        <h3><span class="material-icons">calendar_month</span>年間スケジュール</h3>
+        <div class="schedule-year-nav">
+          <button id="prevYear"><span class="material-icons" style="font-size:18px">chevron_left</span></button>
+          <span>${scheduleYear}年</span>
+          <button id="nextYear"><span class="material-icons" style="font-size:18px">chevron_right</span></button>
+        </div>
+        <div class="schedule-legend">
+          <div class="legend-item"><div class="legend-dot regulation"></div>規制動向</div>
+          <div class="legend-item"><div class="legend-dot deadline"></div>対応期限</div>
+          <div class="legend-item"><div class="legend-dot dev"></div>開発予定</div>
+        </div>
+      </div>
+      <div class="schedule-grid">`;
+
+    for (let m = 0; m < 12; m++) {
+      const monthNum = m + 1;
+      const isPast = (scheduleYear < today.getFullYear()) || (scheduleYear === today.getFullYear() && monthNum < today.getMonth()+1);
+      const isCurrent = (scheduleYear === today.getFullYear() && monthNum === today.getMonth()+1);
+      const labelClass = isCurrent ? 'current' : (isPast ? 'past' : '');
+
+      html += `<div class="month-col"><div class="month-label ${labelClass}">${months[m]}${isCurrent?' <span class="today-marker">NOW</span>':''}</div><div class="month-events">`;
+
+      // Regulation/deadline events
+      const schedEvents = (data.schedule||[]).filter(ev => {
+        const d = new Date(ev.date);
+        return d.getFullYear() === scheduleYear && d.getMonth() === m;
+      });
+      schedEvents.forEach(ev => {
+        html += `<div class="month-event ${ev.type}" data-item="${ev.itemId}" title="${ev.date}: ${ev.label}">${ev.date.slice(5)} ${ev.label}</div>`;
+      });
+
+      // Dev schedule events
+      const devEvents = (data.devSchedule||[]).filter(ev => {
+        const d = new Date(ev.date);
+        return d.getFullYear() === scheduleYear && d.getMonth() === m;
+      });
+      devEvents.forEach(ev => {
+        html += `<div class="month-event dev" title="${ev.date}: ${ev.label}">${ev.date.slice(5)} ${ev.label}</div>`;
+      });
+
+      html += '</div></div>';
+    }
+
+    html += '</div>';
+
+    // Dev schedule editor
+    html += `<div class="dev-schedule-section">
+      <h4><span class="material-icons">edit_calendar</span>開発スケジュール管理</h4>
+      <div class="dev-form">
+        <div class="field"><label>日付</label><input type="date" id="devDate"></div>
+        <div class="field"><label>項目名</label><input type="text" id="devLabel" placeholder="例: JPKI連携API開発完了" style="width:240px"></div>
+        <div class="field"><label>関連情報</label><select id="devRelated"><option value="">-- 選択 --</option>${data.items.map(i=>`<option value="${i.id}">${i.title.substring(0,30)}...</option>`).join('')}</select></div>
+        <button id="devAddBtn">追加</button>
+      </div>
+      <div class="dev-items" id="devItems">`;
+
+    const devSorted = [...(data.devSchedule||[])].sort((a,b) => a.date.localeCompare(b.date));
+    devSorted.forEach((ev, idx) => {
+      const relItem = ev.relatedItemId ? data.items.find(i=>i.id===ev.relatedItemId) : null;
+      html += `<div class="dev-item"><span class="dev-date">${ev.date}</span><span class="dev-label">${ev.label}</span>${relItem?`<span class="dev-related">${relItem.title.substring(0,20)}...</span>`:''}<button class="dev-delete" data-idx="${idx}" title="削除"><span class="material-icons">delete</span></button></div>`;
+    });
+
+    html += '</div></div></div>';
+    return html;
+  }
+
+  // Crawl status view
+  function renderCrawlView() {
+    let html = `<div class="crawl-section">
+      <h3><span class="material-icons">radar</span>情報巡回・クローリング</h3>
+      <p style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">登録された情報源を定期的に巡回し、更新を確認します。初回アクセス時に自動巡回を実行し、以降1日1回自動チェックします。</p>
+      <div style="margin-bottom:16px"><button class="crawl-btn" id="crawlAllBtn">全サイトを今すぐ巡回</button></div>
+      <div class="crawl-status-grid">`;
+
+    (data.rssFeeds||[]).forEach(feed => {
+      const st = crawlStatuses[feed.name];
+      const dotClass = st ? (st.status === 'ok' ? 'ok' : (st.status === 'loading' ? 'pending' : 'error')) : 'pending';
+      const statusText = st ? (st.status === 'ok' ? '確認済' : (st.status === 'loading' ? '巡回中...' : 'エラー')) : '未巡回';
+      const timeText = st && st.time ? st.time : '-';
+      html += `<div class="crawl-status-item">
+        <div class="crawl-dot ${dotClass}"></div>
+        <span class="crawl-name">${feed.name}</span>
+        <span class="crawl-time">${statusText} ${timeText}</span>
+        <a href="${feed.url}" target="_blank" rel="noopener" style="color:var(--primary-light);font-size:12px">開く</a>
+      </div>`;
+    });
+
+    html += `</div></div>`;
+    html += renderFeeds();
+    return html;
+  }
+
+  // Filter
   function getFilteredItems() {
     let items = data.items;
-    if (activeTab !== 'all' && activeTab !== 'timeline') {
+    if (activeTab !== 'all' && activeTab !== 'timeline' && activeTab !== 'schedule' && activeTab !== 'crawl') {
       items = items.filter(i => i.categoryId === activeTab);
     }
-    if (activeImpactFilter !== 'all') {
+    if (activeImpactFilter === 'new') {
+      items = items.filter(i => i.isNew);
+    } else if (activeImpactFilter !== 'all') {
       items = items.filter(i => i.systemImpact === activeImpactFilter);
     }
     if (searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
-      items = items.filter(i =>
-        i.title.toLowerCase().includes(q) ||
-        i.summary.toLowerCase().includes(q) ||
-        i.details.toLowerCase().includes(q) ||
-        i.tags.some(t => t.toLowerCase().includes(q))
-      );
+      items = items.filter(i => i.title.toLowerCase().includes(q) || i.summary.toLowerCase().includes(q) || i.details.toLowerCase().includes(q) || i.tags.some(t => t.toLowerCase().includes(q)));
     }
-    // Sort: new first, then by impact, then by date
     const impactOrder = { critical: 0, high: 1, medium: 2 };
-    items.sort((a, b) => {
+    items.sort((a,b) => {
       if (a.isNew !== b.isNew) return a.isNew ? -1 : 1;
-      if (impactOrder[a.systemImpact] !== impactOrder[b.systemImpact])
-        return impactOrder[a.systemImpact] - impactOrder[b.systemImpact];
+      if (impactOrder[a.systemImpact] !== impactOrder[b.systemImpact]) return impactOrder[a.systemImpact] - impactOrder[b.systemImpact];
       return b.publishedDate.localeCompare(a.publishedDate);
     });
     return items;
@@ -981,56 +626,112 @@
 
   // Main render
   function render() {
+    if (!data) return;
     renderNav();
     document.getElementById('lastUpdated').textContent = `最終更新: ${data.lastUpdated.split('T')[0]}`;
 
     const main = document.getElementById('mainContent');
-    let html = renderStats();
-    html += renderSubscribe();
-    html += renderFeeds();
-    html += renderSearch();
+    let html = '';
 
-    if (activeTab === 'timeline') {
-      html += renderTimeline();
+    if (activeTab === 'schedule') {
+      html = renderSchedule();
+    } else if (activeTab === 'crawl') {
+      html = renderCrawlView();
     } else {
-      html += renderFilters();
-      const items = getFilteredItems();
-      if (items.length === 0) {
-        html += `<div class="no-results"><span class="material-icons">search_off</span>該当する情報が見つかりません</div>`;
+      html += renderStats();
+      html += renderSubscribe();
+      html += renderSearch();
+      if (activeTab === 'timeline') {
+        html += renderTimeline();
       } else {
-        html += '<div class="card-list">';
-        items.forEach(item => { html += renderCard(item); });
-        html += '</div>';
+        html += renderFilters();
+        const items = getFilteredItems();
+        if (items.length === 0) {
+          html += `<div class="no-results"><span class="material-icons">search_off</span>該当する情報が見つかりません</div>`;
+        } else {
+          html += '<div class="card-list">';
+          items.forEach(item => { html += renderCard(item); });
+          html += '</div>';
+        }
       }
     }
     main.innerHTML = html;
+    bindEvents();
+  }
 
-    // Events
-    document.getElementById('searchInput')?.addEventListener('input', (e) => {
-      searchQuery = e.target.value;
-      render();
-      // Re-focus and restore cursor
-      const input = document.getElementById('searchInput');
-      if (input) { input.focus(); input.setSelectionRange(searchQuery.length, searchQuery.length); }
-    });
-
-    document.querySelectorAll('.filter-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        activeImpactFilter = chip.dataset.filter;
+  function bindEvents() {
+    // Stat cards
+    document.querySelectorAll('.stat-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const stat = card.dataset.stat;
+        if (stat === 'new') {
+          activeImpactFilter = activeImpactFilter === 'new' ? 'all' : 'new';
+        } else {
+          activeImpactFilter = activeImpactFilter === stat ? 'all' : stat;
+        }
+        activeTab = 'all';
         render();
       });
     });
 
+    // Search
+    document.getElementById('searchInput')?.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      render();
+      const input = document.getElementById('searchInput');
+      if (input) { input.focus(); input.setSelectionRange(searchQuery.length, searchQuery.length); }
+    });
+
+    // Filter chips
+    document.querySelectorAll('.filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => { activeImpactFilter = chip.dataset.filter; render(); });
+    });
+
+    // Cards
     document.querySelectorAll('.info-card, .timeline-item').forEach(card => {
       card.addEventListener('click', () => openModal(card.dataset.id));
     });
 
+    // Schedule month events
+    document.querySelectorAll('.month-event[data-item]').forEach(ev => {
+      ev.addEventListener('click', () => openModal(ev.dataset.item));
+    });
+
+    // Subscribe
     document.getElementById('subscribeBtn')?.addEventListener('click', () => {
       const email = document.getElementById('subscribeEmail').value;
-      if (email) {
-        alert('登録ありがとうございます。\n' + email + ' に通知をお送りします。\n（デモ機能です）');
-      }
+      if (email) alert('登録ありがとうございます。\n' + email + ' に通知をお送りします。\n（デモ機能です）');
     });
+
+    // Schedule year nav
+    document.getElementById('prevYear')?.addEventListener('click', () => { scheduleYear--; render(); });
+    document.getElementById('nextYear')?.addEventListener('click', () => { scheduleYear++; render(); });
+
+    // Dev schedule add
+    document.getElementById('devAddBtn')?.addEventListener('click', () => {
+      const date = document.getElementById('devDate').value;
+      const label = document.getElementById('devLabel').value;
+      const related = document.getElementById('devRelated').value;
+      if (!date || !label) { alert('日付と項目名を入力してください'); return; }
+      data.devSchedule.push({ date, label, relatedItemId: related || null });
+      saveDevSchedule(data.devSchedule);
+      render();
+    });
+
+    // Dev schedule delete
+    document.querySelectorAll('.dev-delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.dataset.idx);
+        const sorted = [...data.devSchedule].sort((a,b) => a.date.localeCompare(b.date));
+        const toRemove = sorted[idx];
+        data.devSchedule = data.devSchedule.filter(d => d !== toRemove);
+        saveDevSchedule(data.devSchedule);
+        render();
+      });
+    });
+
+    // Crawl
+    document.getElementById('crawlAllBtn')?.addEventListener('click', crawlAll);
   }
 
   // Modal
@@ -1039,95 +740,74 @@
     if (!item) return;
     const cat = data.categories.find(c => c.id === item.categoryId);
     const impactLabel = { critical: 'Critical（緊急対応）', high: 'High（要対応）', medium: 'Medium（対応推奨）' };
-
     document.getElementById('modalTitle').textContent = item.title;
 
     let body = `<div class="modal-meta-grid">
-      <div class="modal-meta-item"><label>カテゴリ</label><span>${cat ? cat.name : ''}</span></div>
+      <div class="modal-meta-item"><label>カテゴリ</label><span>${cat?cat.name:''}</span></div>
       <div class="modal-meta-item"><label>システム影響度</label><span class="badge badge-${item.systemImpact}">${impactLabel[item.systemImpact]}</span></div>
       <div class="modal-meta-item"><label>公表日</label><span>${item.publishedDate}</span></div>
       <div class="modal-meta-item"><label>情報源</label><span>${item.source}</span></div>
-      ${item.deadlineDate ? `<div class="modal-meta-item"><label>対応期限</label><span style="color:var(--critical);font-weight:700">${item.deadlineDate}</span></div>` : ''}
-      ${item.deadlineNote ? `<div class="modal-meta-item"><label>期限備考</label><span>${item.deadlineNote}</span></div>` : ''}
+      ${item.deadlineDate?`<div class="modal-meta-item"><label>対応期限</label><span style="color:var(--critical);font-weight:700">${item.deadlineDate}</span></div>`:''}
+      ${item.deadlineNote?`<div class="modal-meta-item"><label>期限備考</label><span>${item.deadlineNote}</span></div>`:''}
     </div>`;
 
-    body += `<div class="detail-section">
-      <h3><span class="material-icons">summarize</span>概要</h3>
-      <p>${item.summary}</p>
-    </div>`;
-
-    body += `<div class="detail-section">
-      <h3><span class="material-icons">description</span>詳細・システム対応ポイント</h3>
-      <pre>${item.details}</pre>
-    </div>`;
-
-    body += `<div class="detail-section">
-      <h3><span class="material-icons">label</span>関連タグ</h3>
-      <div style="display:flex;gap:6px;flex-wrap:wrap">${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-    </div>`;
+    body += `<div class="detail-section"><h3><span class="material-icons">summarize</span>概要</h3><p>${item.summary}</p></div>`;
+    body += `<div class="detail-section"><h3><span class="material-icons">description</span>詳細・システム対応ポイント</h3><pre>${item.details}</pre></div>`;
+    body += `<div class="detail-section"><h3><span class="material-icons">label</span>関連タグ</h3><div style="display:flex;gap:6px;flex-wrap:wrap">${item.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div>`;
 
     if (item.sourceUrl) {
-      body += `<div class="detail-section">
-        <h3><span class="material-icons">launch</span>情報源</h3>
-        <div class="source-url-box">
-          <span class="material-icons">public</span>
-          <a href="${item.sourceUrl}" target="_blank" rel="noopener">${item.source}：${item.sourceUrl}</a>
-        </div>
-      </div>`;
+      body += `<div class="detail-section"><h3><span class="material-icons">launch</span>情報源</h3><div class="source-url-box"><span class="material-icons">public</span><a href="${item.sourceUrl}" target="_blank" rel="noopener">${item.source}：${item.sourceUrl}</a></div></div>`;
     }
 
     if (item.relatedLinks && item.relatedLinks.length > 0) {
-      body += `<div class="detail-section">
-        <h3><span class="material-icons">link</span>関連リンク・ニュース</h3>
-        <ul class="related-links-list">
-          ${item.relatedLinks.map(link => `<li><a href="${link.url}" target="_blank" rel="noopener"><span class="material-icons">open_in_new</span>${link.title}</a></li>`).join('')}
-        </ul>
-      </div>`;
+      body += `<div class="detail-section"><h3><span class="material-icons">link</span>関連リンク・ニュース</h3><ul class="related-links-list">${item.relatedLinks.map(l=>`<li><a href="${l.url}" target="_blank" rel="noopener"><span class="material-icons">open_in_new</span>${l.title}</a></li>`).join('')}</ul></div>`;
+    }
+
+    // Show related dev schedule items
+    const relatedDev = (data.devSchedule||[]).filter(d => d.relatedItemId === item.id);
+    if (relatedDev.length > 0) {
+      body += `<div class="detail-section"><h3><span class="material-icons">engineering</span>関連する開発予定</h3><ul class="related-links-list">${relatedDev.map(d=>`<li><div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#e8f5e9;border-radius:8px;border-left:3px solid var(--new-badge);font-size:13px"><span class="material-icons" style="font-size:18px;color:var(--new-badge)">event</span><strong>${d.date}</strong> ${d.label}</div></li>`).join('')}</ul></div>`;
     }
 
     document.getElementById('modalBody').innerHTML = body;
     document.getElementById('modalOverlay').classList.add('open');
   }
 
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-  }
+  function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
   document.getElementById('modalClose').addEventListener('click', closeModal);
-  document.getElementById('modalOverlay').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  });
+  document.getElementById('modalOverlay').addEventListener('click', (e) => { if (e.target === document.getElementById('modalOverlay')) closeModal(); });
 
   // Notifications
   function setupNotifications() {
-    const unread = data.notifications.filter(n => !n.isRead);
-    document.getElementById('notifCount').textContent = unread.length;
-    if (unread.length === 0) document.getElementById('notifCount').style.display = 'none';
+    const readIds = loadReadNotifs();
+    const unread = data.notifications.filter(n => !readIds.includes(n.id));
+    const notifCountEl = document.getElementById('notifCount');
+    notifCountEl.textContent = unread.length;
+    notifCountEl.style.display = unread.length === 0 ? 'none' : 'flex';
 
     const list = document.getElementById('notifList');
-    list.innerHTML = data.notifications.map(n => `
-      <div class="notification-item ${n.isRead ? '' : 'unread'}" data-item="${n.relatedItemId}">
-        <div class="notification-date">${n.date}</div>
-        <div class="notification-message">${n.message}</div>
-      </div>
-    `).join('');
+    list.innerHTML = data.notifications.map(n => {
+      const isRead = readIds.includes(n.id);
+      return `<div class="notification-item ${isRead?'':'unread'}" data-item="${n.relatedItemId}" data-notif-id="${n.id}"><div class="notification-date">${n.date}</div><div class="notification-message">${n.message}</div></div>`;
+    }).join('');
 
     list.querySelectorAll('.notification-item').forEach(ni => {
       ni.addEventListener('click', () => {
+        // Mark as read
+        const nid = ni.dataset.notifId;
+        const ids = loadReadNotifs();
+        if (!ids.includes(nid)) { ids.push(nid); saveReadNotifs(ids); }
         toggleNotifPanel(false);
         openModal(ni.dataset.item);
+        setupNotifications();
       });
     });
 
-    // Browser Notification permission
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
     }
-    // Show browser notification for newest unread
     if (unread.length > 0 && 'Notification' in window && Notification.permission === 'granted') {
-      new Notification('犯収法コンプライアンス情報', {
-        body: unread[0].message,
-        icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🛡️</text></svg>'
-      });
+      new Notification('犯収法コンプライアンス情報', { body: unread[0].message, tag: 'compliance-notif' });
     }
   }
 
@@ -1139,31 +819,13 @@
     overlay.classList.toggle('open', isOpen);
   }
 
-  document.getElementById('notifBell').addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleNotifPanel();
-  });
+  document.getElementById('notifBell').addEventListener('click', (e) => { e.stopPropagation(); toggleNotifPanel(); });
   document.getElementById('notifOverlay').addEventListener('click', () => toggleNotifPanel(false));
-
-  // Keyboard
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-      toggleNotifPanel(false);
-    }
-  });
-
-  // Simulated periodic check for new data (in production, this would be a real API poll or WebSocket)
-  function checkForUpdates() {
-    // In production: fetch latest data and compare, then show browser notification
-    console.log('[ComplianceAggregator] Checking for updates...');
-  }
-  setInterval(checkForUpdates, 300000); // Check every 5 minutes
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); toggleNotifPanel(false); } });
 
   // Init
-  loadData();
+  loadData().then(() => setupDailyCrawl());
 })();
 </script>
-
 </body>
 </html>
