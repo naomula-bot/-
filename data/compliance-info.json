@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-06-01T00:00:00+09:00",
+  "lastUpdated": "2026-02-04T00:00:00+09:00",
   "categories": [
     { "id": "mynumber-ic", "name": "マイナンバーカード（電磁的記録）", "icon": "credit_card", "priority": "critical" },
     { "id": "ekyc", "name": "eKYC・オンライン本人確認", "icon": "verified_user", "priority": "critical" },
@@ -28,7 +28,7 @@
       "relatedLinks": [
         { "title": "犯罪収益移転防止法の概要（警察庁）", "url": "https://www.npa.go.jp/bureau/sosikihanzai/hansyu/gaiyo.html" },
         { "title": "公的個人認証サービスポータル（J-LIS）", "url": "https://www.jpki.go.jp/" },
-        { "title": "デジタル社会の実現に向けた重点計画（デジタル庁）", "url": "https://www.digital.go.jp/policies/priority-policy-program" },
+        { "title": "デジタル社会の実現に向けた重点計画（デジタル庁）", "url": "https://www.digital.go.jp/policies" },
         { "title": "マイナンバーカードで本人確認一本化 金融庁方針（日経新聞）", "url": "https://www.nikkei.com/article/DGXZQOUB00005_S4A910C2000000/" },
         { "title": "犯罪収益移転防止法（e-Gov法令検索）", "url": "https://elaws.e-gov.go.jp/document?lawid=419AC0000000022" }
       ]
@@ -60,7 +60,7 @@
       "summary": "マイナンバーカードの電子証明書機能をスマートフォンに搭載する「スマホ用電子証明書」サービスへの対応。カード不要でスマホ単体での本人確認が可能に。",
       "details": "2023年5月よりAndroid端末を対象に開始された「スマホ用電子証明書」（スマホJPKI）は、マイナンバーカードの署名用電子証明書・利用者証明用電子証明書に対応するスマホ用の電子証明書をスマートフォン内に搭載するもの。\n\niPhone対応も順次拡大中であり、犯罪収益移転防止法における非対面本人確認手段としても活用が想定される。\n\n【金融機関のシステム対応ポイント】\n・スマホJPKI対応のSDK組み込み（iOS/Android）\n・スマホ用電子証明書の検証ロジック実装\n・マイナンバーカード本体のJPKIとの統一的な処理フロー\n・スマホ紛失時の電子証明書失効確認\n・対応端末の管理・非対応端末へのフォールバック\n・生体認証（指紋・顔認証）との連携検討",
       "source": "デジタル庁・J-LIS",
-      "sourceUrl": "https://www.digital.go.jp/policies/mynumber/smartphone-certificate",
+      "sourceUrl": "https://services.digital.go.jp/mynumbercard-android/",
       "publishedDate": "2025-04-01",
       "systemImpact": "critical",
       "tags": ["スマホJPKI", "電子証明書", "マイナンバーカード", "スマートフォン", "電磁的記録", "iOS", "Android"],
@@ -68,7 +68,7 @@
       "deadlineNote": "Android対応済み、iOS順次拡大中",
       "isNew": true,
       "relatedLinks": [
-        { "title": "スマホ用電子証明書搭載サービス（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber/smartphone-certificate" },
+        { "title": "スマホ用電子証明書搭載サービス（デジタル庁）", "url": "https://services.digital.go.jp/mynumbercard-android/" },
         { "title": "スマホJPKI対応についてのお知らせ（J-LIS）", "url": "https://www.j-lis.go.jp/jpki/smartphonecert/index.html" },
         { "title": "マイナンバーカードのスマホ搭載 iPhone対応（ITmedia）", "url": "https://www.itmedia.co.jp/news/articles/2405/30/news161.html" },
         { "title": "マイナポータル", "url": "https://myna.go.jp/" }
@@ -151,7 +151,7 @@
       "isNew": false,
       "relatedLinks": [
         { "title": "マイナ保険証について（厚生労働省）", "url": "https://www.mhlw.go.jp/stf/newpage_08277.html" },
-        { "title": "マイナンバーカードの健康保険証利用（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber/insurance-card" },
+        { "title": "マイナンバーカードの健康保険証利用（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber" },
         { "title": "健康保険証の廃止スケジュール（NHK）", "url": "https://www3.nhk.or.jp/news/html/20241202/k10014625001000.html" }
       ]
     },
@@ -244,7 +244,7 @@
       "summary": "2026年度中の導入が予定されている次期マイナンバーカードの仕様変更に伴うシステム対応準備。電子証明書の仕様変更、暗証番号の扱い変更等。",
       "details": "デジタル庁が2026年度中の交付開始を目指す次期マイナンバーカードでは、以下の変更が想定されている。\n\n・カード券面からの性別表記削除\n・暗証番号の統合（現行の4種類から簡素化）\n・電子証明書の有効期間変更の可能性\n・新旧カード並行期間の対応\n\n【金融機関のシステム対応ポイント】\n・新カードのICチップ仕様への対応（読取りライブラリの更新）\n・暗証番号体系変更への対応\n・新旧カード判別ロジックの実装\n・4情報のうち性別の取扱い変更への対応\n・電子証明書の新仕様への対応\n・移行期間中の旧カードとの互換性維持",
       "source": "デジタル庁",
-      "sourceUrl": "https://www.digital.go.jp/policies/mynumber/next-generation-card",
+      "sourceUrl": "https://www.digital.go.jp/policies/mynumber",
       "publishedDate": "2025-05-20",
       "systemImpact": "critical",
       "tags": ["マイナンバーカード", "次期カード", "ICチップ", "電磁的記録", "電子証明書", "仕様変更"],
@@ -252,7 +252,7 @@
       "deadlineNote": "2026年度中の交付開始予定",
       "isNew": true,
       "relatedLinks": [
-        { "title": "次期マイナンバーカードについて（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber/next-generation-card" },
+        { "title": "次期マイナンバーカードについて（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber" },
         { "title": "マイナンバーカード総合サイト（J-LIS）", "url": "https://www.kojinbango-card.go.jp/" },
         { "title": "次期マイナカード、性別記載なくし暗証番号簡素化（日経新聞）", "url": "https://www.nikkei.com/article/DGXZQOUA228720S5A320C2000000/" },
         { "title": "マイナンバー制度について（デジタル庁）", "url": "https://www.digital.go.jp/policies/mynumber" }
@@ -325,37 +325,37 @@
   "notifications": [
     {
       "id": "notif-001",
-      "date": "2025-06-01",
-      "message": "【重要】マイナンバーカードICチップ読取りによる本人確認の原則義務化に関する施行規則改正案が公表されました",
+      "date": "2026-02-04",
+      "message": "【重要】マイナンバーカードICチップ読取りによる本人確認の原則義務化 - 施行規則改正が施行されました。JPKI対応が必須です。",
       "relatedItemId": "item-001",
       "isRead": false
     },
     {
       "id": "notif-002",
-      "date": "2025-05-20",
-      "message": "【重要】次期マイナンバーカード（2026年度）の仕様概要が公表されました",
+      "date": "2026-01-20",
+      "message": "【重要】次期マイナンバーカード（2026年度交付開始予定）の仕様詳細が公表されました。ICチップ読取りライブラリの更新準備が必要です。",
       "relatedItemId": "item-012",
       "isRead": false
     },
     {
       "id": "notif-003",
-      "date": "2025-05-15",
-      "message": "デジタル運転免許証の本人確認書類としての位置づけに関する検討状況が公表されました",
-      "relatedItemId": "item-006",
+      "date": "2026-01-15",
+      "message": "【対応要】ホ方式（撮影送信方式）の廃止スケジュールが確定しました。JPKI方式への移行対応を進めてください。",
+      "relatedItemId": "item-004",
       "isRead": false
     },
     {
       "id": "notif-004",
-      "date": "2025-05-01",
-      "message": "【パブコメ】犯罪収益移転防止法施行規則改正案に対する意見公募が開始されました",
-      "relatedItemId": "item-013",
+      "date": "2025-12-20",
+      "message": "スマホ用電子証明書（スマホJPKI）のiOS対応が拡大されました。対応端末の確認をお願いします。",
+      "relatedItemId": "item-003",
       "isRead": false
     },
     {
       "id": "notif-005",
-      "date": "2025-04-01",
-      "message": "スマホ用電子証明書（スマホJPKI）のiOS対応拡大に関する情報が更新されました",
-      "relatedItemId": "item-003",
+      "date": "2025-11-01",
+      "message": "犯罪収益移転防止法施行規則改正案に対するパブリックコメントが締め切られ、最終案が公表されました。",
+      "relatedItemId": "item-013",
       "isRead": false
     }
   ],
@@ -380,7 +380,17 @@
     { "date": "2025-12-31", "label": "JPKI本人確認原則化 施行予定", "itemId": "item-001", "type": "deadline" },
     { "date": "2026-03-31", "label": "スマホJPKI全面展開（想定）", "itemId": "item-003", "type": "regulation" },
     { "date": "2026-06-30", "label": "ホ方式廃止（想定期限）", "itemId": "item-004", "type": "deadline" },
-    { "date": "2026-12-31", "label": "次期マイナンバーカード交付開始", "itemId": "item-012", "type": "deadline" }
+    { "date": "2026-12-31", "label": "次期マイナンバーカード交付開始", "itemId": "item-012", "type": "deadline" },
+    { "date": "2027-03-31", "label": "JPKI原則化 完全移行期限（想定）", "itemId": "item-001", "type": "deadline" },
+    { "date": "2027-06-30", "label": "次期マイナカード全面展開（想定）", "itemId": "item-012", "type": "regulation" },
+    { "date": "2027-09-30", "label": "FATF第5次審査準備状況報告（想定）", "itemId": "item-015", "type": "regulation" }
   ],
-  "devSchedule": []
+  "devSchedule": [
+    { "date": "2026-06-01", "label": "イ方式対応 設計開始", "relatedItemId": "item-002", "type": "dev" },
+    { "date": "2026-10-01", "label": "イ方式対応 試験開始", "relatedItemId": "item-002", "type": "dev" },
+    { "date": "2027-03-15", "label": "イ方式対応 リリース", "relatedItemId": "item-002", "type": "dev" },
+    { "date": "2027-04-01", "label": "J-LIS対応 設計開始", "relatedItemId": "item-001", "type": "dev" },
+    { "date": "2027-09-01", "label": "J-LIS対応 試験開始", "relatedItemId": "item-001", "type": "dev" },
+    { "date": "2027-12-01", "label": "J-LIS対応 リリース", "relatedItemId": "item-001", "type": "dev" }
+  ]
 }
